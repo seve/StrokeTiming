@@ -6,9 +6,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.sevebadajoz.stroketiming.ImportData"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.sevebadajoz.stroketiming.ImportData">
+  <bottom>
+    <Button mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT" />
+  </bottom>
+  <left>
+    <GridPane prefWidth="347.0">
+      <children>
+        <HBox alignment="CENTER" prefHeight="55.0" prefWidth="371.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+          <children>
+            <TextField focusTraversable="true" prefWidth="200.0" />
+            <Button mnemonicParsing="false" text="Choose a File (.csv)" />
+          </children>
+        </HBox>
+        <ListView prefHeight="191.0" prefWidth="347.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label text="Detected Pieces" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="-1.0" minHeight="-1.0" prefHeight="-1.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="-1.0" minHeight="10.0" prefHeight="-1.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="-1.0" minHeight="-1.0" prefHeight="-1.0" valignment="BOTTOM" vgrow="ALWAYS" />
+      </rowConstraints>
+    </GridPane>
+  </left>
+  <top>
+    <Button mnemonicParsing="false" text="&lt;-" />
+  </top>
+</BorderPane>
