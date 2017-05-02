@@ -6,9 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.sevebadajoz.stroketiming.WorkoutList"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.sevebadajoz.stroketiming.WorkoutList">
+  <bottom>
+    <Button mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT" />
+  </bottom>
+  <center>
+    <ListView prefHeight="200.0" prefWidth="200.0" />
+  </center>
+  <top>
+    <Button mnemonicParsing="false" text="&lt;-" />
+  </top>
+</BorderPane>
