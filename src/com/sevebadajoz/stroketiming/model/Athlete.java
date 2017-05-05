@@ -2,9 +2,13 @@ package com.sevebadajoz.stroketiming.model;
 
 public class Athlete {
 	private String mName;
-	private int mWeight;
+	private double mWeight;
 
-	int getWeight() {
+	public Athlete(String name, double weight) {
+		mName = name;
+		mWeight = weight;
+	}
+	double getWeight() {
 		return mWeight;
 	}
 	String getName() {
