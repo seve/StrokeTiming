@@ -25,16 +25,17 @@ public class ErgScore {
 		mWeight = weight;
 		mWeightFactor = Math.pow((mWeight / 270), .222);
 	}
+
 	public double getWeightAdjustedSeconds() {
 		return  mWeightFactor * mSeconds;
 	}
 	public int getWeightAdjustedDistance() {
 		return (int)(mMeters / mWeightFactor + .5);
 	}
-	public String secondsToString() {
-		String ret = Integer.toString((int)mSeconds / 60);
+	public String secondsToString(double seconds) {
+		String ret = Integer.toString((int)seconds / 60);
 		ret += ":";
-		ret += Integer.toString((int)mSeconds % 60);
+		ret += Double.toString((int)seconds % 60);
 		return ret;
 	}
 	public int stringToSeconds(String str) {
@@ -44,6 +45,9 @@ public class ErgScore {
 		seconds += Integer.parseInt(str.substring(0, str.indexOf(":")), 10) * 60;
 		return seconds;
 	}
-
+	public String getSplit() {
+		double splitSeconds = mSeconds / 4;
+		return secondsToString(splitSeconds);
+	}
 
 }
