@@ -1,5 +1,8 @@
 package com.sevebadajoz.stroketiming.model;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class ErgScore {
 	private double mSeconds;
 	private int mMeters;
@@ -32,17 +35,52 @@ public class ErgScore {
 	public int getWeightAdjustedDistance() {
 		return (int)(mMeters / mWeightFactor + .5);
 	}
-	public String secondsToString(double seconds) {
+
+	public double getSeconds() {
+		return mSeconds;
+	}
+
+	public void setSeconds(double seconds) {
+		mSeconds = seconds;
+	}
+
+	public int getMeters() {
+		return mMeters;
+	}
+
+	public void setMeters(int meters) {
+		mMeters = meters;
+	}
+
+	public double getWeight() {
+		return mWeight;
+	}
+
+	public void setWeight(double weight) {
+		mWeight = weight;
+	}
+
+	public double getWeightFactor() {
+		return mWeightFactor;
+	}
+
+	public void setWeightFactor(double weightFactor) {
+		mWeightFactor = weightFactor;
+	}
+
+	public static String secondsToString(double seconds) {
+		DecimalFormat twoDP = new DecimalFormat("0.#");
 		String ret = Integer.toString((int)seconds / 60);
 		ret += ":";
-		ret += Double.toString((int)seconds % 60);
+
+		ret += twoDP.format(seconds % 60);
 		return ret;
 	}
-	public int stringToSeconds(String str) {
+	public static double stringToSeconds(String str) {
 		str = str.trim();
-		int seconds, minutes;
-		seconds = Integer.parseInt(str.substring(str.indexOf(":")), 10);
-		seconds += Integer.parseInt(str.substring(0, str.indexOf(":")), 10) * 60;
+		double seconds, minutes;
+		seconds = Double.parseDouble(str.substring(str.indexOf(":") + 1));
+		seconds += Double.parseDouble(str.substring(0, str.indexOf(":"))) * 60;
 		return seconds;
 	}
 	public String getSplit() {
