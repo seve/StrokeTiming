@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.collections.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<BorderPane prefHeight="498.0" prefWidth="606.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.sevebadajoz.stroketiming.Addboat">
+<?import java.lang.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="498.0" prefWidth="606.0"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.sevebadajoz.stroketiming.Addboat">
   <bottom>
     <Button alignment="CENTER" mnemonicParsing="false" text="+" BorderPane.alignment="TOP_RIGHT">
       <BorderPane.margin>
