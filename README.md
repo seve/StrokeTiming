@@ -50,12 +50,21 @@ Severiano Badajoz, Kenia Rioja-Naranjo
   * name TEXT,
   * position INTEGER,
   * weight REAL,
-  * erg_score INTEGER
   
 * Coxswain
   * id INTEGER PRIMARY KEY,
   * name TEXT,
   * weight REAL
+  
+* Erg Scores
+  * id INTEGER PRIMARY KEY,
+  * seconds REAL,
+  * meters INT,
+  * weight REAL
+  
+* Rower Erg Scores (Relational Table)
+  * id INTEGER, //rower
+  * id INTEGER //erg score
   
 * Boat Workouts (Relational Table)
   * id INTEGER, //boat
