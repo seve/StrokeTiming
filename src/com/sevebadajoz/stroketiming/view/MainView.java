@@ -12,6 +12,6 @@ public class MainView extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         ViewSwitch.setStage(primaryStage);
-        ViewSwitch.loadScene("Stroke Timing", ViewSwitch.MAIN_SCENE);
+        ViewSwitch.loadScene("Stroke Timing", ViewSwitch.BOAT_LIST_SCENE);
     }
 }
