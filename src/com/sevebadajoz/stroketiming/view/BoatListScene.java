@@ -1,16 +1,10 @@
 package com.sevebadajoz.stroketiming.view;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.stage.Stage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class BoatListScene extends Application implements Initializable {
+public class BoatListScene {
 
 	@FXML
 	private Button mAddButton;
@@ -19,13 +13,10 @@ public class BoatListScene extends Application implements Initializable {
 	@FXML
 	private ListView mBoatList;
 
-	@Override
-	public void start(Stage stage) throws Exception {
 
-	}
-
-	@Override
-	public void initialize(URL url, ResourceBundle resourceBundle) {
-
+	@FXML
+	public Object loadAddBoat() {
+		ViewSwitch.loadScene("Add a Boat", ViewSwitch.ADD_BOAT_SCENE);
+		return this;
 	}
 }
