@@ -9,14 +9,14 @@
   <bottom>
     <HBox alignment="CENTER_RIGHT" fillHeight="false" prefHeight="28.0" prefWidth="600.0" visible="true" BorderPane.alignment="BOTTOM_RIGHT">
       <children>
-        <Button mnemonicParsing="false" text="+" />
+        <Button fx:id="mAddButton" mnemonicParsing="false" text="+" />
       </children>
     </HBox>
   </bottom>
   <center>
-    <ListView prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+    <ListView fx:id="mBoatList" prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
   </center>
   <top>
-    <Button mnemonicParsing="false" text="X" BorderPane.alignment="TOP_RIGHT" />
+    <Button fx:id="mExitButton" mnemonicParsing="false" text="X" BorderPane.alignment="TOP_RIGHT" />
   </top>
 </BorderPane>

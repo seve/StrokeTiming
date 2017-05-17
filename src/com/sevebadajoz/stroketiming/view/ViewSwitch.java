@@ -7,8 +7,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ViewSwitch {
-    public static final String BOAT_LIST_SCENE = "com/sevebadajoz/stroketiming/view/FXML/boatList.fxml";
-    public static Stage activeStage;
+    public static final String BOAT_LIST_SCENE = "com/sevebadajoz/stroketiming/view/boatList.fxml";
+	public static final String ADD_BOAT_SCENE = "com/sevebadajoz/stroketiming/view/addBoat.fxml";
+	public static Stage activeStage;
 
     public static void setStage(Stage stage) {
         activeStage = stage;
