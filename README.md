@@ -24,8 +24,7 @@ Severiano Badajoz, Kenia Rioja-Naranjo
 ## Database Tables:
 * Boat Lineups
   * id INTEGER PRIMARY KEY,
-  * boat_id INTEGER,		//Point to the Boats table
-  * coxswain_id INTEGER,	//Point to the People table
+  * coxswain_id INTEGER,	
   * stroke_seat_id INTEGER,
   * seat_two_id INTEGER,
   * seat_three_id INTEGER,
@@ -34,31 +33,50 @@ Severiano Badajoz, Kenia Rioja-Naranjo
   * seat_six_id INTEGER,
   * seat_seven_id INTEGER,
   * bow_seat_id INTEGER
+  
 * Boats
   * id INTEGER PRIMARY KEY,
   * name TEXT,
   * type TEXT,
-  * weight INTEGER,
+  * weight REAL,
   * seats INTEGER
+  
+* Boats to Boat Lineups (Relational Table)
+  * id INTEGER //boat
+  * id INTEGER //boat lineup
+  
 * Rower
   * id INTEGER PRIMARY KEY,
   * name TEXT,
   * position INTEGER,
-  * weight INTEGER,
+  * weight REAL,
   * erg_score INTEGER
+  
 * Coxswain
   * id INTEGER PRIMARY KEY,
-  *   
-* Workouts
+  * name TEXT,
+  * weight REAL
+  
+* Boat Workouts (Relational Table)
+  * id INTEGER, //boat
+  * id INTEGER, //workout
+  
+* Workout
   * id INTEGER PRIMARY KEY,
   * date TEXT,
-  * boat_id	 INTEGER,		//Points to Boats Lineups table
-  * pieces STRING		//Point to Pieces table
-* Pieces
+  * comments TEXT
+  
+* Piece
   * id INTEGER PRIMARY KEY,
   * type TEXT,
-  * meters INTEGER,
-  * time INTEGER
+  * meters INTEGER, 
+  * time REAL, //in seconds
+  * comments TEXT
+  
+* Workout to Pieces
+  * id INTEGER, //workout
+  * id INTEGER, //piece
+  
 ## Model-View-Controller:
 ### Model: 
 Data will be taken in as .csv files from M800 GPS watches.
