@@ -35,16 +35,20 @@ Severiano Badajoz, Kenia Rioja-Naranjo
   * seat_seven_id INTEGER,
   * bow_seat_id INTEGER
 * Boats
-  * boat_id INTEGER PRIMARY KEY,
-  * boat_name TEXT,
-  * boat_type TEXT,
-  * boat_weight INTEGER
-* People
+  * id INTEGER PRIMARY KEY,
+  * name TEXT,
+  * type TEXT,
+  * weight INTEGER,
+  * seats INTEGER
+* Rower
   * id INTEGER PRIMARY KEY,
   * name TEXT,
   * position INTEGER,
   * weight INTEGER,
   * erg_score INTEGER
+* Coxswain
+  * id INTEGER PRIMARY KEY,
+  *   
 * Workouts
   * id INTEGER PRIMARY KEY,
   * date TEXT,
