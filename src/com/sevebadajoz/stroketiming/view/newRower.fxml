@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="448.0" prefWidth="481.0"
-            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.sevebadajoz.stroketiming.NewRower">
+            xmlns="http://javafx.com/javafx/2.2">
   <bottom>
     <Button alignment="CENTER" mnemonicParsing="false" text="Add" BorderPane.alignment="CENTER_RIGHT">
       <BorderPane.margin>
