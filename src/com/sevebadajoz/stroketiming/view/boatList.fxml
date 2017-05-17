@@ -17,6 +17,6 @@
     <ListView fx:id="mBoatList" prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
   </center>
   <top>
-    <Button fx:id="mExitButton" mnemonicParsing="false" text="X" BorderPane.alignment="TOP_RIGHT" />
+    <Button fx:id="mExitButton" mnemonicParsing="false" onAction="#exitCheck" text="X" BorderPane.alignment="TOP_RIGHT" />
   </top>
 </BorderPane>
