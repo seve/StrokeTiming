@@ -4,9 +4,9 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="200.0" prefWidth="200.0"
-            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.sevebadajoz.stroketiming.pieceInfo">
+            xmlns="http://javafx.com/javafx/2.2">
   <bottom>
-    <Button mnemonicParsing="false" text="View Raw" BorderPane.alignment="CENTER_RIGHT" />
+    <Button mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT" />
   </bottom>
   <center>
     <ListView prefHeight="200.0" prefWidth="200.0" />

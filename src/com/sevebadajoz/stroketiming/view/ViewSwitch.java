@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ViewSwitch {
-    public static final String BOAT_LIST_SCENE = "boatList.fxml";
+    public static final String BOAT_LIST_SCENE = "com/sevebadajoz/stroketiming/view/FXML/boatList.fxml";
     public static Stage activeStage;
 
     public static void setStage(Stage stage) {

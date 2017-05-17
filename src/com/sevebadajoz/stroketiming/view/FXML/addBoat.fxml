@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="403.0" prefWidth="408.0"
-            xmlns="http://javafx.com/javafx/2.2" fx:controller="com.sevebadajoz.stroketiming.AddBoat">
+            xmlns="http://javafx.com/javafx/2.2">
   <bottom>
     <Button mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT" />
   </bottom>
