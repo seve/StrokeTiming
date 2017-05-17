@@ -45,13 +45,13 @@ Severiano Badajoz, Kenia Rioja-Naranjo
   * id INTEGER //boat
   * id INTEGER //boat lineup
   
-* Rower
+* Rowers
   * id INTEGER PRIMARY KEY,
   * name TEXT,
   * position INTEGER,
   * weight REAL,
   
-* Coxswain
+* Coxswains
   * id INTEGER PRIMARY KEY,
   * name TEXT,
   * weight REAL
@@ -70,19 +70,19 @@ Severiano Badajoz, Kenia Rioja-Naranjo
   * id INTEGER, //boat
   * id INTEGER, //workout
   
-* Workout
+* Workouts
   * id INTEGER PRIMARY KEY,
   * date TEXT,
   * comments TEXT
   
-* Piece
+* Pieces
   * id INTEGER PRIMARY KEY,
   * type TEXT,
   * meters INTEGER, 
   * time REAL, //in seconds
   * comments TEXT
   
-* Workout to Pieces
+* Workout to Pieces (Relational Table)
   * id INTEGER, //workout
   * id INTEGER, //piece
   

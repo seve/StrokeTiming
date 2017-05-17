@@ -87,5 +87,4 @@ public class ErgScore {
 		double splitSeconds = mSeconds / 4;
 		return secondsToString(splitSeconds);
 	}
-
 }
