@@ -1,9 +1,10 @@
 package com.sevebadajoz.stroketiming.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
-import javafx.stage.Stage;
 
 public class BoatListScene {
 
@@ -16,7 +17,10 @@ public class BoatListScene {
 
 	@FXML
 	public Object exitCheck() {
-		ViewSwitch.newWindow("Are You Sure?", ViewSwitch.EXIT_PROMPT_SCENE);
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit?");
+		alert.showAndWait()
+				.filter(response -> response == ButtonType.OK)
+				.ifPresent(response -> System.exit(0));
 		return this;
 	}
 
