@@ -6,6 +6,14 @@ public class ErgPiece extends Piece {
     private double mWeight;
 	private double mWeightFactor;
 
+	public ErgPiece(double seconds, int meters) {
+		super(seconds, meters);
+	}
+
+	public ErgPiece(String time, int meters) {
+		super(time, meters);
+	}
+
 	public ErgPiece(double seconds, int meters, double weight) {
         super(seconds, meters);
         mWeight = weight;
