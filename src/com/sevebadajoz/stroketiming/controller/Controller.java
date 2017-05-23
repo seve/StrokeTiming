@@ -240,8 +240,8 @@ public class Controller {
         String[] values = new String[BOATS_FIELD_NAMES.length - 1];
         values[0] = name;
         values[1] = Integer.toString(seats);
-        values[2] = make;
-        values[3] = Integer.toString(weight);
+        values[2] = Integer.toString(weight);
+        values[3] = make;
         try {
             mBoatsTable.createRecord(Arrays.copyOfRange(BOATS_FIELD_NAMES, 1, BOATS_FIELD_NAMES.length), values);
             return true;
