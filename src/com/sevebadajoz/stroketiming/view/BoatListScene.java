@@ -21,6 +21,8 @@ public class BoatListScene implements Initializable {
 	private Button mExitButton;
 	@FXML
 	private ListView<Lineup> mBoatList;
+    @FXML
+    private Button mMoreInfo;
 
 	@FXML
 	public Object exitCheck() {
@@ -41,4 +43,11 @@ public class BoatListScene implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		mBoatList.setItems(mController.getLineups());
 	}
+
+    @FXML
+    public Object loadInfo() {
+        Lineup lineup = mBoatList.getSelectionModel().getSelectedItem();
+        mController.setmctiveLineup(lineup))
+        ViewSwitch.loadScene("Pieces for " + lineup, );
+    }
 }

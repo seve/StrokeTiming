@@ -129,11 +129,11 @@ public class Controller {
         return String.valueOf(chars);
     }
 
-    public static Lineup getmActiveLineup() {
+    public Lineup getActiveLineup() {
         return mActiveLineup;
     }
 
-    public static void setmActiveLineup(Lineup mActiveLineup) {
+    public void setmctiveLineup(Lineup mActiveLineup) {
         Controller.mActiveLineup = mActiveLineup;
     }
 
