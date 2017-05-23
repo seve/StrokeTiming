@@ -291,6 +291,13 @@ public class Controller {
     }
 
     public ObservableList<Boat> getBoats() {
+        try {
+            for (ArrayList<String> strings : mBoatsTable.getAllRecords()) {
+                mBoats.add(new Boat(Integer.parseInt(strings.get(0)), strings.get(1), Integer.parseInt(strings.get(2)), Integer.parseInt(strings.get(3)), strings.get(4)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return theOne.mBoats;
     }
 
