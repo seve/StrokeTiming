@@ -25,5 +25,6 @@ public class PieceListScene implements Initializable {
     @FXML
     Object back() {
         ViewSwitch.loadScene("Practices for " + mController.getActiveLineup(), ViewSwitch.PRACTICE_LIST_SCENE);
+        return this;
     }
 }
