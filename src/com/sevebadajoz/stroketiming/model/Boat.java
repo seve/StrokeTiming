@@ -3,19 +3,21 @@ package com.sevebadajoz.stroketiming.model;
 import com.sevebadajoz.stroketiming.controller.Controller;
 
 public class Boat {
+    protected int mID;
     protected String mName;
     protected int mSeats;
     protected int mWeight;
     protected String mMake;
 
-    public Boat(String name, int seats, String make) {
+    public Boat(int ID, String name, int seats, String make) {
+        mID = ID;
         mName = name;
         mSeats = seats;
         mMake = make;
     }
 
-    public Boat(String name, int seats, int weight, String make) {
-        this(name, seats, make);
+    public Boat(int ID, String name, int seats, int weight, String make) {
+        this(ID, name, seats, make);
         mMake = make;
     }
 

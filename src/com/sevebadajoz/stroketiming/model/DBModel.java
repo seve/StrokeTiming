@@ -7,6 +7,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * <code>DBModel</code> represents the database model for a table containing one primary key
+ * and one or more fields.  It provides mechanisms by which new records can be created and
+ * existing ones can be updated or deleted.  <code>DBModel</code> also provides functionality
+ * to query the database table for a single record, all records or the total count of records.
+ *
+ * @author Michael Paulding
+ * @version 1.0
+ */
 public class DBModel
 {
     private String mDBName;
@@ -22,7 +31,7 @@ public class DBModel
         mFieldNames = fieldNames;
         mFieldTypes = fieldTypes;
 
-        if (mFieldNames == null || mFieldTypes == null || mFieldNames.length == 0 || mFieldNames.length != mFieldTypes.length)
+        if (mFieldNames == null || mFieldTypes == null || mFieldNames.length == 0 || mFieldTypes.length == 0 || mFieldNames.length != mFieldTypes.length)
             throw new SQLException("Database field names and types must exist and have the same number of elements.");
 
         createTable();

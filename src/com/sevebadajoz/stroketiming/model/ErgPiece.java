@@ -6,22 +6,22 @@ public class ErgPiece extends Piece {
     private double mWeight;
 	private double mWeightFactor;
 
-	public ErgPiece(double seconds, int meters) {
-		super(seconds, meters);
+	public ErgPiece(int ID, double seconds, int meters) {
+		super(ID, seconds, meters);
 	}
 
-	public ErgPiece(String time, int meters) {
-		super(time, meters);
+	public ErgPiece(int ID, String time, int meters) {
+		super(ID, time, meters);
 	}
 
-	public ErgPiece(double seconds, int meters, double weight) {
-        super(seconds, meters);
+	public ErgPiece(int ID, double seconds, int meters, double weight) {
+        super(ID, seconds, meters);
         mWeight = weight;
 		mWeightFactor = Math.pow((mWeight / 270), .222);
 	}
 
-	public ErgPiece(String time, int meters, double weight) {
-        super(time, meters);
+	public ErgPiece(int ID, String time, int meters, double weight) {
+        super(ID, time, meters);
         mWeight = weight;
 		mWeightFactor = Math.pow((mWeight / 270), .222);
 	}

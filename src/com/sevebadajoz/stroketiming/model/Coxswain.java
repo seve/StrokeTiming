@@ -2,9 +2,9 @@ package com.sevebadajoz.stroketiming.model;
 
 public class Coxswain extends Athlete
 {
-    public Coxswain(String name, double weight)
+    public Coxswain(int ID, String name, double weight)
     {
-        super(name, weight);
+        super(ID, name, weight);
     }
     
 }
