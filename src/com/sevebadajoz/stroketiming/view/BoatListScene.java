@@ -48,6 +48,6 @@ public class BoatListScene implements Initializable {
     public Object loadInfo() {
         Lineup lineup = mBoatList.getSelectionModel().getSelectedItem();
 		mController.setActiveLineup(lineup);
-		ViewSwitch.loadScene("Pieces for " + lineup, ViewSwitch.PRACTICE_LIST_SCENE);
+		ViewSwitch.loadScene("Practices for " + lineup, ViewSwitch.PRACTICE_LIST_SCENE);
 	}
 }
