@@ -12,12 +12,6 @@ public class Rower extends Athlete {
         mInches = inches;
     }
 
-    public Rower(int ID, String name, double weight, int inches) {
-        super(ID, name, weight);
-        //mErgPiece = ergPiece;
-        mInches = inches;
-    }
-
     //public ErgPiece getErgPiece() {
     //    return mErgPiece;
     //}
