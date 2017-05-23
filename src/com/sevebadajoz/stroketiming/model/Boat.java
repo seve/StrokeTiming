@@ -9,15 +9,11 @@ public class Boat {
     protected int mWeight;
     protected String mMake;
 
-    public Boat(int ID, String name, int seats, String make) {
+    public Boat(int ID, String name, int seats, int weight, String make) {
         mID = ID;
         mName = name;
         mSeats = seats;
-        mMake = make;
-    }
-
-    public Boat(int ID, String name, int seats, int weight, String make) {
-        this(ID, name, seats, make);
+        mWeight = weight;
         mMake = make;
     }
 
