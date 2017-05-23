@@ -3,7 +3,6 @@ package com.sevebadajoz.stroketiming.view;
 import com.sevebadajoz.stroketiming.controller.Controller;
 import com.sevebadajoz.stroketiming.model.Boat;
 import com.sevebadajoz.stroketiming.model.Coxswain;
-import com.sevebadajoz.stroketiming.model.Lineup;
 import com.sevebadajoz.stroketiming.model.Rower;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,7 +59,7 @@ public class AddLineUpScene implements Initializable {
         Rower two = mTwoSeat.getSelectionModel().getSelectedItem();
         Rower bow = mBowSeat.getSelectionModel().getSelectedItem();
         Rower[] rowers = {stroke, seven, six, five, four, three, two, bow};
-        mController.getLineups().add(new Lineup(rowers, coxswain, boat));
+        mController.addNewLineup(rowers, coxswain, boat);
         ViewSwitch.loadScene("Stroke Timing", ViewSwitch.BOAT_LIST_SCENE);
         return this;
     }

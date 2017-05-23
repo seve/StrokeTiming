@@ -7,15 +7,14 @@ import org.junit.jupiter.api.Test;
 import java.text.DecimalFormat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 class ErgPieceTest {
 	ErgPiece myScore;
 	ErgPiece weightScore;
 	@BeforeEach
 	void setUp() {
-		myScore = new ErgPiece("6:48.7", 2000);
-		weightScore = new ErgPiece("6:48.7", 2000, 170.5);
+		myScore = new ErgPiece(1, "6:48.7", 2000);
+		weightScore = new ErgPiece(1, "6:48.7", 2000, 170.5);
 	}
 
 	@AfterEach
