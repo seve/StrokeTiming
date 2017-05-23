@@ -57,7 +57,9 @@ public class Controller {
 	private static final String[] WORKOUT_TO_PIECES_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
     private static Controller theOne;
+
     private static Lineup mActiveLineup;
+
     private DBModel mBoatsTable;
     private DBModel mBoatLineupsTable;
     private DBModel mBoatsToBoatLineupsTable;
@@ -69,10 +71,12 @@ public class Controller {
     private DBModel mBoatWorkoutTable;
     private DBModel mPiecesTable;
     private DBModel mWorkoutToPiecesTable;
+
     private ObservableList<Lineup> mLineups;
     private ObservableList<Boat> mBoats;
     private ObservableList<Coxswain> mCoxswains;
     private ObservableList<Rower> mRowers;
+    private ObservableList<Practice> mPractices;
 
     private Controller() {
     }
@@ -86,6 +90,7 @@ public class Controller {
             theOne.mBoats = FXCollections.observableArrayList();
             theOne.mCoxswains = FXCollections.observableArrayList();
             theOne.mRowers = FXCollections.observableArrayList();
+            theOne.mPractices = FXCollections.observableArrayList();
 
             try {
                 theOne.mBoatsTable = new DBModel(DB_NAME, BOATS_TABLE_NAME, BOATS_FIELD_NAMES, BOATS_FIELD_TYPES);
@@ -204,7 +209,7 @@ public class Controller {
         return mActiveLineup;
     }
 
-    public void setmctiveLineup(Lineup mActiveLineup) {
+    public void setActiveLineup(Lineup mActiveLineup) {
         Controller.mActiveLineup = mActiveLineup;
     }
 
@@ -222,5 +227,10 @@ public class Controller {
 
     public ObservableList<Rower> getRowers() {
         return theOne.mRowers;
+    }
+
+    public ObservableList<Practice> getPractices() {
+        theOne.mPractices.setAll(theOne.getActiveLineup().getPractices());
+        return theOne.mPractices;
     }
 }
