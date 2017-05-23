@@ -1,7 +1,6 @@
 package com.sevebadajoz.stroketiming.view;
 
 import com.sevebadajoz.stroketiming.controller.Controller;
-import com.sevebadajoz.stroketiming.model.Boat;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -26,9 +25,9 @@ public class AddBoatScene {
         String boatType = mBoatType.getText();
         String weight = mBoatWeight.getText().trim();
         if (weight.equals("")) {
-            mController.getBoats().add(new Boat(name, 8, boatType));
+            mController.addNewBoat(name, 8, 0, boatType);
         } else {
-            mController.getBoats().add(new Boat(name, 8, Integer.parseInt(weight), ""));
+            mController.addNewBoat(name, 8, Integer.parseInt(weight), boatType);
         }
         ViewSwitch.loadScene("Add Lineup", ViewSwitch.ADD_LINEUP_SCENE);
         return this;

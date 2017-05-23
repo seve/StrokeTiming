@@ -29,13 +29,13 @@ public class Controller {
 	private static final String[] ROWERS_FIELD_NAMES = {"id", "name", "weight", "inches"};
 	private static final String[] ROWERS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "REAL", "INTEGER"};
 
-	private static final String ERG_SCORES_TABLE_NAME = "erg_scores";
-	private static final String[] ERG_SCORES_FIELD_NAMES = {"id", "seconds", "meters", "weight"};
-	private static final String[] ERG_SCORES_FIELD_TYPES = {"INTEGER PRIMARY KEY", "REAL", "INTEGER", "REAL"};
+    private static final String ERG_PIECES_TABLE_NAME = "erg_pieces";
+    private static final String[] ERG_PIECES_FIELD_NAMES = {"id", "seconds", "meters", "weight"};
+    private static final String[] ERG_PIECES_FIELD_TYPES = {"INTEGER PRIMARY KEY", "REAL", "INTEGER", "REAL"};
 
-	private static final String ROWER_ERG_SCORES_TABLE_NAME = "rower_erg_scores";
-	private static final String[] ROWER_ERG_SCORES_FIELD_NAMES = {"rower_id", "erg_score_id"};
-	private static final String[] ROWER_ERG_SCORES_FIELD_TYPES = {"INTEGER", "INTEGER"};
+    private static final String ROWER_ERG_PIECES_TABLE_NAME = "rower_erg_pieces";
+    private static final String[] ROWER_ERG_PIECES_FIELD_NAMES = {"rower_id", "erg_piece_id"};
+    private static final String[] ROWER_ERG_PIECES_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
 	private static final String COXSWAINS_TABLE_NAME = "coxswains";
 	private static final String[] COXSWAINS_FIELD_NAMES = {"id", "name", "weight"};
@@ -65,8 +65,8 @@ public class Controller {
     private DBModel mLineupsTable;
     private DBModel mBoatsToBoatLineupsTable;
     private DBModel mRowersTable;
-    private DBModel mErgScoresTable;
-    private DBModel mRowerErgScoresTable;
+    private DBModel mErgPiecesTable;
+    private DBModel mRowerErgPiecesTable;
     private DBModel mCoxswainsTable;
     private DBModel mPracticesTable;
     private DBModel mBoatPracticeTable;
@@ -160,8 +160,8 @@ public class Controller {
                 }
 
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_LINEUPS_TABLE_NAME, BOATS_TO_LINEUPS_FIELD_NAMES, BOATS_TO_LINEUPS_FIELD_TYPES);
-                theOne.mErgScoresTable = new DBModel(DB_NAME, ERG_SCORES_TABLE_NAME, ERG_SCORES_FIELD_NAMES, ERG_SCORES_FIELD_TYPES);
-                theOne.mRowerErgScoresTable = new DBModel(DB_NAME, ROWER_ERG_SCORES_TABLE_NAME, ROWER_ERG_SCORES_FIELD_NAMES, ROWER_ERG_SCORES_FIELD_TYPES);
+                theOne.mErgPiecesTable = new DBModel(DB_NAME, ERG_PIECES_TABLE_NAME, ERG_PIECES_FIELD_NAMES, ERG_PIECES_FIELD_TYPES);
+                theOne.mRowerErgPiecesTable = new DBModel(DB_NAME, ROWER_ERG_PIECES_TABLE_NAME, ROWER_ERG_PIECES_FIELD_NAMES, ROWER_ERG_PIECES_FIELD_TYPES);
                 theOne.mPracticesTable = new DBModel(DB_NAME, PRACTICES_TABLE_NAME, PRACTICES_FIELD_NAMES, PRACTICES_FIELD_TYPES);
                 theOne.mBoatPracticeTable = new DBModel(DB_NAME, BOAT_PRACTICES_TABLE_NAME, BOAT_PRACTICES_FIELD_NAMES, BOAT_PRACTICES_FIELD_TYPES);
                 theOne.mPiecesTable = new DBModel(DB_NAME, PIECES_TABLE_NAME, PIECES_FIELD_NAMES, PIECES_FIELD_TYPES);
@@ -229,6 +229,48 @@ public class Controller {
         }
         try {
             mLineupsTable.createRecord(Arrays.copyOfRange(LINEUPS_FIELD_NAMES, 1, LINEUPS_FIELD_NAMES.length), values);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean addNewBoat(String name, int seats, int weight, String make) {
+        String[] values = new String[BOATS_FIELD_NAMES.length - 1];
+        values[0] = name;
+        values[1] = Integer.toString(seats);
+        values[2] = make;
+        values[3] = Integer.toString(weight);
+        try {
+            mBoatsTable.createRecord(Arrays.copyOfRange(BOATS_FIELD_NAMES, 1, BOATS_FIELD_NAMES.length), values);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean addNewCoxswain(String name, Double weight) {
+        String[] values = new String[COXSWAINS_FIELD_NAMES.length - 1];
+        values[0] = name;
+        values[1] = weight.toString();
+        try {
+            mCoxswainsTable.createRecord(Arrays.copyOfRange(COXSWAINS_FIELD_NAMES, 1, COXSWAINS_FIELD_NAMES.length), values);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean addNewRower(String name, double weight, int inches) {
+        String[] values = new String[ROWERS_FIELD_NAMES.length - 1];
+        values[0] = name;
+        values[1] = Double.toHexString(weight);
+        values[2] = Integer.toString(inches);
+        try {
+            mRowersTable.createRecord(Arrays.copyOfRange(ROWERS_FIELD_NAMES, 1, ROWERS_FIELD_NAMES.length), values);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
