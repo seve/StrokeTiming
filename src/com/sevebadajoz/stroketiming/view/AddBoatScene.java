@@ -30,7 +30,7 @@ public class AddBoatScene {
         } else {
             mController.getBoats().add(new Boat(name, 8, Integer.parseInt(weight), ""));
         }
-        ViewSwitch.loadScene("Stroke Timing", ViewSwitch.BOAT_LIST_SCENE);
+        ViewSwitch.loadScene("Add Lineup", ViewSwitch.ADD_LINEUP_SCENE);
         return this;
     }
 
