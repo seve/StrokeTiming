@@ -16,8 +16,9 @@ public class Lineup {
 		mBoat = boat;
 	}
 
-	public Lineup(Rower[] rowers, Coxswain coxswain, ArrayList<Practice> practices, Boat boat) {
-		mRowers = rowers;
+    public Lineup(int ID, Rower[] rowers, Coxswain coxswain, ArrayList<Practice> practices, Boat boat) {
+        mID = ID;
+        mRowers = rowers;
 		mCoxswain = coxswain;
 		mPractices = practices;
 		mBoat = boat;
