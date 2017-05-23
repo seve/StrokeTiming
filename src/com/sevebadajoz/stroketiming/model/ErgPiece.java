@@ -84,8 +84,8 @@ public class ErgPiece extends Piece {
 	}
 
 	public String getSplit() {
-		double splitSeconds = mSeconds / 4;
-		return secondsToString(splitSeconds);
+        double splitSeconds = mSeconds / (mMeters / 500);
+        return secondsToString(splitSeconds);
 	}
 
 	public String toString() {
