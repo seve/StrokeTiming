@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Controller {
 	private static final String DB_NAME = "stroke_timing.db";
@@ -89,6 +90,14 @@ public class Controller {
 
             try{
                 theOne.mBoatsTable = new DBModel(DB_NAME, BOATS_TABLE_NAME, BOATS_FIELD_NAMES, BOATS_FIELD_TYPES);
+
+                ArrayList<ArrayList<String>> rs = theOne.mBoatsTable.getAllRecords();
+
+                for (ArrayList<String> values : rs)
+                {
+
+                }
+
                 theOne.mBoatLineupsTable = new DBModel(DB_NAME, BOAT_LINEUPS_TABLE_NAME, BOAT_LINEUPS_FIELD_NAMES, BOAT_LINEUPS_FIELD_TYPES);
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
                 theOne.mRowersTable = new DBModel(DB_NAME, ROWERS_TABLE_NAME, ROWERS_FIELD_NAMES, ROWERS_FIELD_TYPES);

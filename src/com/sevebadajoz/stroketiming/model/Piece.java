@@ -3,17 +3,18 @@ package com.sevebadajoz.stroketiming.model;
 import java.text.DecimalFormat;
 
 public abstract class Piece {
+    protected int mID;
     protected double mSeconds;
     protected int mMeters;
 
-    public Piece(double seconds, int meters) {
+    public Piece(int ID, double seconds, int meters) {
+        mID = ID;
         mSeconds = seconds;
         mMeters = meters;
     }
 
-    public Piece(String time, int meters) {
-        mSeconds = stringToSeconds(time);
-        mMeters = meters;
+    public Piece(int ID, String time, int meters) {
+        this(ID, stringToSeconds(time), meters);
     }
 
     public static String secondsToString(double seconds) {

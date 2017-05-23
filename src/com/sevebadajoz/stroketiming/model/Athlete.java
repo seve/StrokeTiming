@@ -5,13 +5,16 @@ import com.sevebadajoz.stroketiming.controller.Controller;
 import java.text.DecimalFormat;
 
 public class Athlete {
+	protected int mID;
 	protected String mName;
 	protected double mWeight;
 
-	protected Athlete(String name, double weight) {
+	protected Athlete(int ID, String name, double weight) {
+		mID = ID;
 		mName = name;
 		mWeight = weight;
 	}
+	int getID() {return mID;}
 	double getWeight() {
 		return mWeight;
 	}
