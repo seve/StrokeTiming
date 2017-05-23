@@ -11,7 +11,7 @@ public class ViewSwitch {
     public static final String ADD_BOAT_SCENE = "com/sevebadajoz/stroketiming/view/addBoat.fxml";
     public static final String ADD_LINEUP_SCENE = "com/sevebadajoz/stroketiming/view/addBoatLineup.fxml";
     public static final String ADD_ROWER_SCENE = "com/sevebadajoz/stroketiming/view/addRower.fxml";
-    public static final String ADD_COXSWAIN_SCENE = "com/sevebadajoz/stroketiming/view/addBoatLineup.fxml";
+    public static final String ADD_COXSWAIN_SCENE = "com/sevebadajoz/stroketiming/view/addCoxswain.fxml";
 
     public static Stage activeStage;
     public static Stage window;
