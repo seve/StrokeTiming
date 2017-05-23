@@ -8,6 +8,12 @@ public class Lineup {
 	ArrayList<Practice> mPractices;
 	Boat mBoat;
 
+	public Lineup(Rower[] rowers, Coxswain coxswain, Boat boat) {
+		mRowers = rowers;
+		mCoxswain = coxswain;
+		mBoat = boat;
+	}
+
 	public Lineup(Rower[] rowers, Coxswain coxswain, ArrayList<Practice> practices, Boat boat) {
 		mRowers = rowers;
 		mCoxswain = coxswain;
@@ -27,11 +33,11 @@ public class Lineup {
 		return mPractices;
 	}
 
-	public Boat getBoat() {
-		return mBoat;
-	}
-
 	public void setPractices(ArrayList<Practice> practices) {
 		mPractices = practices;
+	}
+
+	public Boat getBoat() {
+		return mBoat;
 	}
 }

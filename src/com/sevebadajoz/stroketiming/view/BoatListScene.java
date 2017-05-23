@@ -33,7 +33,7 @@ public class BoatListScene implements Initializable {
 
 	@FXML
 	public Object loadAddBoat() {
-		ViewSwitch.loadScene("Add a Boat", ViewSwitch.ADD_BOAT_SCENE);
+		ViewSwitch.loadScene("Add a Lineup", ViewSwitch.ADD_LINEUP_SCENE);
 		return this;
 	}
 

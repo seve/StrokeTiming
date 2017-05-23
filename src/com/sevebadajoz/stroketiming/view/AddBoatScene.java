@@ -1,11 +1,13 @@
 package com.sevebadajoz.stroketiming.view;
 
+import com.sevebadajoz.stroketiming.controller.Controller;
 import com.sevebadajoz.stroketiming.model.Boat;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class AddBoatScene {
+    static Controller mController = Controller.getInstance();
     // TODO: 5/22/2017 Add make and seat number functionality
     @FXML
     Button mBackButton;
@@ -24,9 +26,9 @@ public class AddBoatScene {
         String boatType = mBoatType.getText();
         String weight = mBoatWeight.getText().trim();
         if (weight.equals("")) {
-            BoatListScene.getBoatList().getItems().add(new Boat(name, 8, boatType));
+            mController.getBoats().add(new Boat(name, 8, boatType));
         } else {
-            BoatListScene.getBoatList().getItems().add(new Boat(name, 8, Integer.parseInt(weight), ""));
+            mController.getBoats().add(new Boat(name, 8, Integer.parseInt(weight), ""));
         }
         ViewSwitch.loadScene("Stroke Timing", ViewSwitch.BOAT_LIST_SCENE);
         return this;
@@ -35,7 +37,7 @@ public class AddBoatScene {
     @FXML
     Object back() {
         clear();
-        ViewSwitch.loadScene("Stroke Timing", ViewSwitch.BOAT_LIST_SCENE);
+        ViewSwitch.loadScene("Add Lineup", ViewSwitch.ADD_LINEUP_SCENE);
         return this;
     }
 
