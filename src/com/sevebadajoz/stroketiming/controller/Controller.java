@@ -40,21 +40,21 @@ public class Controller {
 	private static final String[] COXSWAINS_FIELD_NAMES = {"id", "name", "weight"};
 	private static final String[] COXSWAINS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "REAL"};
 
-    private static final String WORKOUTS_TABLE_NAME = "workouts";
-	private static final String[] WORKOUTS_FIELD_NAMES = {"id", "date", "comments"};
-	private static final String[] WORKOUTS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "TEXT"};
+    private static final String PRACTICES_TABLE_NAME = "practices";
+    private static final String[] PRACTICES_FIELD_NAMES = {"id", "date", "comments"};
+    private static final String[] PRACTICES_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "TEXT"};
 
-	private static final String BOAT_WORKOUTS_TABLE_NAME = "boat_workouts";
-	private static final String[] BOAT_WORKOUTS_FIELD_NAMES = {"boat_id", "workout_id"};
-	private static final String[] BOAT_WORKOUTS_FIELD_TYPES = {"INTEGER", "INTEGER"};
+    private static final String BOAT_PRACTICES_TABLE_NAME = "boat_practices";
+    private static final String[] BOAT_PRACTICES_FIELD_NAMES = {"boat_id", "practice_id"};
+    private static final String[] BOAT_PRACTICES_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
     private static final String PIECES_TABLE_NAME = "pieces";
 	private static final String[] PIECES_FIELD_NAMES = {"id", "type", "meters", "time", "comments"};
 	private static final String[] PIECES_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "INTEGER", "REAL", "TEXT"};
 
-	private static final String WORKOUT_TO_PIECES_TABLE_NAME = "workout_to_pieces";
-	private static final String[] WORKOUT_TO_PIECES_FIELD_NAMES = {"workout_id", "pieces_id"};
-	private static final String[] WORKOUT_TO_PIECES_FIELD_TYPES = {"INTEGER", "INTEGER"};
+    private static final String PRACTICE_TO_PIECES_TABLE_NAME = "practice_to_pieces";
+    private static final String[] PRACTICE_TO_PIECES_FIELD_NAMES = {"practice_id", "pieces_id"};
+    private static final String[] PRACTICE_TO_PIECES_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
     private static Controller theOne;
 
@@ -67,10 +67,10 @@ public class Controller {
     private DBModel mErgScoresTable;
     private DBModel mRowerErgScoresTable;
     private DBModel mCoxswainsTable;
-    private DBModel mWorkoutsTable;
-    private DBModel mBoatWorkoutTable;
+    private DBModel mPracticesTable;
+    private DBModel mBoatPracticeTable;
     private DBModel mPiecesTable;
-    private DBModel mWorkoutToPiecesTable;
+    private DBModel mPracticeToPiecesTable;
 
     private ObservableList<Lineup> mLineups;
     private ObservableList<Boat> mBoats;
@@ -161,10 +161,10 @@ public class Controller {
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
                 theOne.mErgScoresTable = new DBModel(DB_NAME, ERG_SCORES_TABLE_NAME, ERG_SCORES_FIELD_NAMES, ERG_SCORES_FIELD_TYPES);
                 theOne.mRowerErgScoresTable = new DBModel(DB_NAME, ROWER_ERG_SCORES_TABLE_NAME, ROWER_ERG_SCORES_FIELD_NAMES, ROWER_ERG_SCORES_FIELD_TYPES);
-                theOne.mWorkoutsTable = new DBModel(DB_NAME, WORKOUTS_TABLE_NAME, WORKOUTS_FIELD_NAMES, WORKOUTS_FIELD_TYPES);
-                theOne.mBoatWorkoutTable = new DBModel(DB_NAME, BOAT_WORKOUTS_TABLE_NAME, BOAT_WORKOUTS_FIELD_NAMES, BOAT_WORKOUTS_FIELD_TYPES);
+                theOne.mPracticesTable = new DBModel(DB_NAME, PRACTICES_TABLE_NAME, PRACTICES_FIELD_NAMES, PRACTICES_FIELD_TYPES);
+                theOne.mBoatPracticeTable = new DBModel(DB_NAME, BOAT_PRACTICES_TABLE_NAME, BOAT_PRACTICES_FIELD_NAMES, BOAT_PRACTICES_FIELD_TYPES);
                 theOne.mPiecesTable = new DBModel(DB_NAME, PIECES_TABLE_NAME, PIECES_FIELD_NAMES, PIECES_FIELD_TYPES);
-                theOne.mWorkoutToPiecesTable = new DBModel(DB_NAME, WORKOUT_TO_PIECES_TABLE_NAME, WORKOUT_TO_PIECES_FIELD_NAMES, WORKOUT_TO_PIECES_FIELD_TYPES);
+                theOne.mPracticeToPiecesTable = new DBModel(DB_NAME, PRACTICE_TO_PIECES_TABLE_NAME, PRACTICE_TO_PIECES_FIELD_NAMES, PRACTICE_TO_PIECES_FIELD_TYPES);
             }
             catch (SQLException e){
                 e.printStackTrace();
