@@ -267,7 +267,7 @@ public class Controller {
     public boolean addNewRower(String name, double weight, int inches) {
         String[] values = new String[ROWERS_FIELD_NAMES.length - 1];
         values[0] = name;
-        values[1] = Double.toHexString(weight);
+        values[1] = Double.toString(weight);
         values[2] = Integer.toString(inches);
         try {
             mRowersTable.createRecord(Arrays.copyOfRange(ROWERS_FIELD_NAMES, 1, ROWERS_FIELD_NAMES.length), values);
