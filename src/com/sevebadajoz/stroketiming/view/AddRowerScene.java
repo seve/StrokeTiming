@@ -32,4 +32,10 @@ public class AddRowerScene implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         mSides.getItems().addAll("Port", "Starboard", "Both");
     }
+
+    @FXML
+    Object add() {
+
+        return this;
+    }
 }
