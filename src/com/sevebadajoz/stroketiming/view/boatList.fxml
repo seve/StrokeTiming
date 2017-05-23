@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.*?>
@@ -9,8 +10,21 @@
   <bottom>
     <HBox alignment="CENTER_RIGHT" fillHeight="false" prefHeight="28.0" prefWidth="600.0" visible="true" BorderPane.alignment="BOTTOM_RIGHT">
       <children>
-          <Button fx:id="mAddButton" mnemonicParsing="false" onAction="#loadAddBoat" text="+"/>
+          <Button fx:id="mMoreInfo" disable="true" mnemonicParsing="false" text="View Info"/>
+          <Region prefHeight="25.0" prefWidth="157.0">
+              <HBox.margin>
+                  <Insets left="3.0" right="3.0" top="3.0"/>
+              </HBox.margin>
+          </Region>
+          <Button fx:id="mAddButton" mnemonicParsing="false" onAction="#loadAddBoat" text="Add New Lineup">
+              <HBox.margin>
+                  <Insets right="7.0"/>
+              </HBox.margin>
+          </Button>
       </children>
+        <BorderPane.margin>
+            <Insets bottom="7.0" top="7.0"/>
+        </BorderPane.margin>
     </HBox>
   </bottom>
   <center>

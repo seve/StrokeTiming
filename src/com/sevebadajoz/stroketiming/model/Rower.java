@@ -3,6 +3,14 @@ package com.sevebadajoz.stroketiming.model;
 public class Rower extends Athlete {
     //protected ErgPiece mErgPiece;
     protected int mInches;
+    protected String mSide;
+    private int mID;
+
+
+    public Rower(int iD, String name, double weight, int inches) {
+        super(iD, name, weight);
+        mInches = inches;
+    }
 
     public Rower(int ID, String name, double weight, int inches) {
         super(ID, name, weight);
@@ -25,4 +33,13 @@ public class Rower extends Athlete {
     public void setInches(int inches) {
         mInches = inches;
     }
+
+    public String getSide() {
+        return mSide;
+    }
+
+    public void setSide(String side) {
+        mSide = side;
+    }
+
 }

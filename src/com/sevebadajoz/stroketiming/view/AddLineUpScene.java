@@ -89,6 +89,16 @@ public class AddLineUpScene implements Initializable {
         return this;
     }
 
+    @FXML
+    Object checkCompletion() {
+        if (mBoat.getSelectionModel().isEmpty() || mCoxswain.getSelectionModel().isEmpty() || mStroke.getSelectionModel().isEmpty() || mSevenSeat.getSelectionModel().isEmpty() ||
+                mSixSeat.getSelectionModel().isEmpty() || mFiveSeat.getSelectionModel().isEmpty() || mFourSeat.getSelectionModel().isEmpty() || mThreeSeat.getSelectionModel().isEmpty()
+                || mTwoSeat.getSelectionModel().isEmpty() || mBowSeat.getSelectionModel().isEmpty()) {
+            mAddLineup.setDisable(true);
+        } else mAddLineup.setDisable(false);
+        return this;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //        if (!mController.getBoats().isEmpty())

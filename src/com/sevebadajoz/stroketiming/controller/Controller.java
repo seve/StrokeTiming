@@ -57,7 +57,7 @@ public class Controller {
 	private static final String[] WORKOUT_TO_PIECES_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
     private static Controller theOne;
-
+    private static Lineup mActiveLineup;
     private DBModel mBoatsTable;
     private DBModel mBoatLineupsTable;
     private DBModel mBoatsToBoatLineupsTable;
@@ -69,14 +69,13 @@ public class Controller {
     private DBModel mBoatWorkoutTable;
     private DBModel mPiecesTable;
     private DBModel mWorkoutToPiecesTable;
-
-
     private ObservableList<Lineup> mLineups;
     private ObservableList<Boat> mBoats;
     private ObservableList<Coxswain> mCoxswains;
     private ObservableList<Rower> mRowers;
 
-	private Controller() { }
+    private Controller() {
+    }
 
     public static Controller getInstance() {
         if (theOne == null) {
@@ -164,6 +163,14 @@ public class Controller {
             }
         }
         return String.valueOf(chars);
+    }
+
+    public Lineup getActiveLineup() {
+        return mActiveLineup;
+    }
+
+    public void setmctiveLineup(Lineup mActiveLineup) {
+        Controller.mActiveLineup = mActiveLineup;
     }
 
     public ObservableList<Lineup> getLineups() {
