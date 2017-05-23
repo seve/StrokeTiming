@@ -1,5 +1,7 @@
 package com.sevebadajoz.stroketiming.model;
 
+import com.sevebadajoz.stroketiming.controller.Controller;
+
 public class Boat {
     protected String mName;
     protected int mSeats;
@@ -47,5 +49,9 @@ public class Boat {
 
     public void setMake(String make) {
         mMake = make;
+    }
+
+    public String toString() {
+        return Controller.getInstance().capitalizeString(mName);
     }
 }

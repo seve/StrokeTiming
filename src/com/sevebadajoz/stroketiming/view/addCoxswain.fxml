@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="448.0" prefWidth="481.0"
+            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.sevebadajoz.stroketiming.view.AddCoxswainScene">
+    <bottom>
+        <Button fx:id="mAdd" alignment="CENTER" mnemonicParsing="false" onAction="#add" text="+"
+                BorderPane.alignment="CENTER_RIGHT">
+            <BorderPane.margin>
+                <Insets bottom="7.0" right="7.0"/>
+            </BorderPane.margin>
+        </Button>
+    </bottom>
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane alignment="CENTER" prefHeight="400.0000999999975" prefWidth="600.0">
+                    <children>
+                        <Label text="Weight" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="mWeight" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="mName" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label alignment="CENTER" text="Name"/>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="93.0" valignment="CENTER"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="93.0" valignment="CENTER"
+                                        vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                </GridPane>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="7.0" left="7.0" right="7.0" top="7.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </center>
+    <top>
+        <Button fx:id="mBack" mnemonicParsing="false" onAction="#back" text="&lt;-">
+            <BorderPane.margin>
+                <Insets left="7.0" top="7.0"/>
+            </BorderPane.margin>
+        </Button>
+    </top>
+</BorderPane>

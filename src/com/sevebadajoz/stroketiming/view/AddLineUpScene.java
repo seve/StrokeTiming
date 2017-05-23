@@ -7,10 +7,9 @@ import com.sevebadajoz.stroketiming.model.Lineup;
 import com.sevebadajoz.stroketiming.model.Rower;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,7 +18,14 @@ public class AddLineUpScene implements Initializable {
     @FXML
     Button mBack;
     @FXML
-    Button mAdd;
+    Button mAddLineup;
+    @FXML
+    Button mAddBoat;
+    @FXML
+    Button mAddRower;
+    @FXML
+    Button mAddCoxswain;
+
     @FXML
     ComboBox<Boat> mBoat;
     @FXML
@@ -65,34 +71,53 @@ public class AddLineUpScene implements Initializable {
         return this;
     }
 
+    @FXML
+    Object addNewBoat() {
+        ViewSwitch.loadScene("Add New Boat", ViewSwitch.ADD_BOAT_SCENE);
+        return this;
+    }
+
+    @FXML
+    Object addNewRower() {
+        ViewSwitch.loadScene("Add New Rower", ViewSwitch.ADD_ROWER_SCENE);
+        return this;
+    }
+
+    @FXML
+    Object addNewCoxswain() {
+        ViewSwitch.loadScene("Add New Coxswain", ViewSwitch.ADD_COXSWAIN_SCENE);
+        return this;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (!mController.getBoats().isEmpty())
-            mBoat.getItems().addAll(mController.getBoats());
-        else
-            mBoat.setPlaceholder(new Label("Add a Boat"));
-        if (!mController.getCoxswains().isEmpty())
-            mCoxswain.getItems().addAll(mController.getCoxswains());
-        else
-            mCoxswain.setPlaceholder(new Label("Add a Coxswain"));
-        if (!mController.getRowers().isEmpty()) {
-            mStroke.getItems().addAll(mController.getRowers());
-            mSevenSeat.getItems().addAll(mController.getRowers());
-            mSixSeat.getItems().addAll(mController.getRowers());
-            mFiveSeat.getItems().addAll(mController.getRowers());
-            mFourSeat.getItems().addAll(mController.getRowers());
-            mThreeSeat.getItems().addAll(mController.getRowers());
-            mTwoSeat.getItems().addAll(mController.getRowers());
-            mBowSeat.getItems().addAll(mController.getRowers());
-        } else {
-            mStroke.setPlaceholder(new Label("Add a Rower"));
-            mSevenSeat.setPlaceholder(new Label("Add a Rower"));
-            mSixSeat.setPlaceholder(new Label("Add a Rower"));
-            mFiveSeat.setPlaceholder(new Label("Add a Rower"));
-            mFourSeat.setPlaceholder(new Label("Add a Rower"));
-            mThreeSeat.setPlaceholder(new Label("Add a Rower"));
-            mTwoSeat.setPlaceholder(new Label("Add a Rower"));
-            mBowSeat.setPlaceholder(new Label("Add a Rower"));
-        }
+//        if (!mController.getBoats().isEmpty())
+        mBoat.getItems().setAll(mController.getBoats());
+//        else
+//            mBoat.setPlaceholder(new Label("Add a Boat"));
+//        if (!mController.getCoxswains().isEmpty())
+        mCoxswain.getItems().setAll(mController.getCoxswains());
+//        else
+//            mCoxswain.setPlaceholder(new Label("Add a Coxswain"));
+//        if (!mController.getRowers().isEmpty()) {
+        mStroke.getItems().setAll(mController.getRowers());
+        mSevenSeat.getItems().setAll(mController.getRowers());
+        mSixSeat.getItems().setAll(mController.getRowers());
+        mFiveSeat.getItems().setAll(mController.getRowers());
+        mFourSeat.getItems().setAll(mController.getRowers());
+        mThreeSeat.getItems().setAll(mController.getRowers());
+        mTwoSeat.getItems().setAll(mController.getRowers());
+        mBowSeat.getItems().setAll(mController.getRowers());
+//        } else {
+//            mStroke.setPlaceholder(new Label("Add a Rower"));
+//            mSevenSeat.setPlaceholder(new Label("Add a Rower"));
+//            mSixSeat.setPlaceholder(new Label("Add a Rower"));
+//            mFiveSeat.setPlaceholder(new Label("Add a Rower"));
+//            mFourSeat.setPlaceholder(new Label("Add a Rower"));
+//            mThreeSeat.setPlaceholder(new Label("Add a Rower"));
+//            mTwoSeat.setPlaceholder(new Label("Add a Rower"));
+//            mBowSeat.setPlaceholder(new Label("Add a Rower"));
+//        }
+
     }
 }
