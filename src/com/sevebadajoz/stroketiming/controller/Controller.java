@@ -11,8 +11,8 @@ public class Controller {
 	private static final String DB_NAME = "stroke_timing.db";
 
 	private static final String BOATS_TABLE_NAME = "boats";
-	private static final String[] BOATS_FIELD_NAMES = {"id", "name", "type", "weight", "seats"};
-	private static final String[] BOATS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "TEXT", "REAL", "INTEGER"};
+	private static final String[] BOATS_FIELD_NAMES = {"id", "name", "seats", "weight", "make"};
+	private static final String[] BOATS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "TEXT"};
 
 	private static final String BOAT_LINEUPS_TABLE_NAME = "boat_lineups";
 	private static final String[] BOAT_LINEUPS_FIELD_NAMES = {"id", "coxswain_id", "stroke_seat_id", "seat_two_id", "seat_three_id",
@@ -25,8 +25,8 @@ public class Controller {
 	private static final String[] BOATS_TO_BOAT_LINEUPS_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
 	private static final String ROWERS_TABLE_NAME = "rowers";
-	private static final String[] ROWERS_FIELD_NAMES = {"id", "name", "position", "weight"};
-	private static final String[] ROWERS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "INTEGER", "REAL"};
+	private static final String[] ROWERS_FIELD_NAMES = {"id", "name", "weight", "inches"};
+	private static final String[] ROWERS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "REAL", "INTEGER"};
 
 	private static final String ERG_SCORES_TABLE_NAME = "erg_scores";
 	private static final String[] ERG_SCORES_FIELD_NAMES = {"id", "seconds", "meters", "weight"};
@@ -88,22 +88,58 @@ public class Controller {
             theOne.mCoxswains = FXCollections.observableArrayList();
             theOne.mRowers = FXCollections.observableArrayList();
 
-            try{
+            try {
                 theOne.mBoatsTable = new DBModel(DB_NAME, BOATS_TABLE_NAME, BOATS_FIELD_NAMES, BOATS_FIELD_TYPES);
-
                 ArrayList<ArrayList<String>> rs = theOne.mBoatsTable.getAllRecords();
+
+                for (ArrayList<String> values : rs)
+                {
+                    int ID = Integer.parseInt(values.get(0));
+                    String name = values.get(1);
+                    int seats = Integer.parseInt(values.get(2));
+                    int weight = Integer.parseInt(values.get(3));
+                    String make = values.get(4);
+
+                    theOne.mBoats.add(new Boat(ID, name, seats, weight, make));
+                }
+
+                theOne.mBoatLineupsTable = new DBModel(DB_NAME, BOAT_LINEUPS_TABLE_NAME, BOAT_LINEUPS_FIELD_NAMES, BOAT_LINEUPS_FIELD_TYPES);
+                rs = theOne.mBoatLineupsTable.getAllRecords();
 
                 for (ArrayList<String> values : rs)
                 {
 
                 }
 
-                theOne.mBoatLineupsTable = new DBModel(DB_NAME, BOAT_LINEUPS_TABLE_NAME, BOAT_LINEUPS_FIELD_NAMES, BOAT_LINEUPS_FIELD_TYPES);
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
+
                 theOne.mRowersTable = new DBModel(DB_NAME, ROWERS_TABLE_NAME, ROWERS_FIELD_NAMES, ROWERS_FIELD_TYPES);
+                rs = theOne.mRowersTable.getAllRecords();
+
+                for (ArrayList<String> values : rs)
+                {
+                    int ID = Integer.parseInt(values.get(0));
+                    String name = values.get(1);
+                    double weight = Double.parseDouble(values.get(2));
+                    int inches = Integer.parseInt(values.get(3));
+
+                    theOne.mRowers.add(new Rower(ID, name, weight, inches));
+                }
+
                 theOne.mErgScoresTable = new DBModel(DB_NAME, ERG_SCORES_TABLE_NAME, ERG_SCORES_FIELD_NAMES, ERG_SCORES_FIELD_TYPES);
                 theOne.mRowerErgScoresTable = new DBModel(DB_NAME, ROWER_ERG_SCORES_TABLE_NAME, ROWER_ERG_SCORES_FIELD_NAMES, ROWER_ERG_SCORES_FIELD_TYPES);
                 theOne.mCoxswainsTable = new DBModel(DB_NAME, COXSWAINS_TABLE_NAME, COXSWAINS_FIELD_NAMES, COXSWAINS_FIELD_TYPES);
+                rs = theOne.mCoxswainsTable.getAllRecords();
+
+                for (ArrayList<String> values : rs)
+                {
+                    int ID = Integer.parseInt(values.get(0));
+                    String name = values.get(1);
+                    double weight = Double.parseDouble(values.get(2));
+
+                    theOne.mCoxswains.add(new Coxswain(ID, name, weight));
+                }
+
                 theOne.mWorkoutsTable = new DBModel(DB_NAME, WORKOUTS_TABLE_NAME, WORKOUTS_FIELD_NAMES, WORKOUTS_FIELD_TYPES);
                 theOne.mBoatWorkoutTable = new DBModel(DB_NAME, BOAT_WORKOUTS_TABLE_NAME, BOAT_WORKOUTS_FIELD_NAMES, BOAT_WORKOUTS_FIELD_TYPES);
                 theOne.mPiecesTable = new DBModel(DB_NAME, PIECES_TABLE_NAME, PIECES_FIELD_NAMES, PIECES_FIELD_TYPES);

@@ -3,52 +3,107 @@ package com.sevebadajoz.stroketiming.model;
 import java.util.ArrayList;
 
 public class Lineup {
+
+	//"id", "coxswain_id", "stroke_seat_id", "seat_two_id", "seat_three_id",
+	//		"seat_four_id", "seat_five_id", "seat_six_id", "seat_seven_id", "bow_seat_id"
+
 	int mID;
-	Rower[] mRowers;
-	Coxswain mCoxswain;
-	ArrayList<Practice> mPractices;
-	Boat mBoat;
+	int mCoxswainID;
+	int mStrokeSeatID;
+	int mSeatTwoID;
+	int mSeatThreeID;
+	int mSeatFourID;
+	int mSeatFiveID;
+	int mSeatSixID;
+	int mSeatSevenID;
+	int mBowSeatID;
 
-	public Lineup(int ID, Rower[] rowers, Coxswain coxswain, Boat boat) {
+	public Lineup(int ID, int coxswainID, int strokeSeatID, int seatTwoID, int seatThreeID, int seatFourID, int seatFiveID, int seatSixID, int seatSevenID, int bowSeatID) {
 		mID = ID;
-		mRowers = rowers;
-		mCoxswain = coxswain;
-		mBoat = boat;
+		mCoxswainID = coxswainID;
+		mStrokeSeatID = strokeSeatID;
+		mSeatTwoID = seatTwoID;
+		mSeatThreeID = seatThreeID;
+		mSeatFourID = seatFourID;
+		mSeatFiveID = seatFiveID;
+		mSeatSixID = seatSixID;
+		mSeatSevenID = seatSevenID;
+		mBowSeatID = bowSeatID;
 	}
 
-	public Lineup(Rower[] rowers, Coxswain coxswain, ArrayList<Practice> practices, Boat boat) {
-		mRowers = rowers;
-		mCoxswain = coxswain;
-		mPractices = practices;
-		mBoat = boat;
+	public int getID() {
+		return mID;
 	}
 
-	public Rower[] getRowers() {
-		return mRowers;
+	public void setID(int ID) {
+		mID = ID;
 	}
 
-	public Coxswain getCoxswain() {
-		return mCoxswain;
+	public int getStrokeSeatID() {
+		return mStrokeSeatID;
 	}
 
-	public ArrayList<Practice> getPractices() {
-		return mPractices;
+	public void setStrokeSeatID(int strokeSeatID) {
+		mStrokeSeatID = strokeSeatID;
 	}
 
-	public void setPractices(ArrayList<Practice> practices) {
-		mPractices = practices;
+	public int getSeatTwoID() {
+		return mSeatTwoID;
 	}
 
-	public Boat getBoat() {
-		return mBoat;
+	public void setSeatTwoID(int seatTwoID) {
+		mSeatTwoID = seatTwoID;
+	}
+
+	public int getSeatThreeID() {
+		return mSeatThreeID;
+	}
+
+	public void setSeatThreeID(int seatThreeID) {
+		mSeatThreeID = seatThreeID;
+	}
+
+	public int getSeatFourID() {
+		return mSeatFourID;
+	}
+
+	public void setSeatFourID(int seatFourID) {
+		mSeatFourID = seatFourID;
+	}
+
+	public int getSeatFiveID() {
+		return mSeatFiveID;
+	}
+
+	public void setSeatFiveID(int seatFiveID) {
+		mSeatFiveID = seatFiveID;
+	}
+
+	public int getSeatSixID() {
+		return mSeatSixID;
+	}
+
+	public void setSeatSixID(int seatSixID) {
+		mSeatSixID = seatSixID;
+	}
+
+	public int getSeatSevenID() {
+		return mSeatSevenID;
+	}
+
+	public void setSeatSevenID(int seatSevenID) {
+		mSeatSevenID = seatSevenID;
+	}
+
+	public int getBowSeatID() {
+		return mBowSeatID;
+	}
+
+	public void setBowSeatID(int bowSeatID) {
+		mBowSeatID = bowSeatID;
 	}
 
 	public String toString() {
-		StringBuilder ret = new StringBuilder();
-		ret.append(mBoat).append(", Stroke: ").append(mRowers[0]);
-		for (int i = 1; i < mRowers.length; i++) {
-			ret.append(", ").append(mRowers[i]);
-		}
-		return ret.toString();
+		return "";
 	}
 }
