@@ -3,7 +3,7 @@ package com.sevebadajoz.stroketiming.model;
 import java.text.DecimalFormat;
 
 public abstract class Piece {
-    protected int mID;
+    protected final int mID;
     protected double mSeconds;
     protected int mMeters;
 

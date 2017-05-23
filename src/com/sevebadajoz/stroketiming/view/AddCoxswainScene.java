@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 
 public class AddCoxswainScene {
-    static Controller mController = Controller.getInstance();
+    static final Controller mController = Controller.getInstance();
     @FXML
     TextField mName;
     @FXML

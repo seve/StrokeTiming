@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 public class BoatListScene implements Initializable {
 
-	private static Controller mController = Controller.getInstance();
+	private static final Controller mController = Controller.getInstance();
 	@FXML
 	private Button mAddButton;
 	@FXML

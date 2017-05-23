@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 
 public class PracticeListScene implements Initializable {
 
-    static Controller mController = Controller.getInstance();
+    static final Controller mController = Controller.getInstance();
 
     @FXML
     ListView<Practice> mPractices;

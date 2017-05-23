@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddLineUpScene implements Initializable {
-    static Controller mController = Controller.getInstance();
+    static final Controller mController = Controller.getInstance();
     @FXML
     Button mBack;
     @FXML

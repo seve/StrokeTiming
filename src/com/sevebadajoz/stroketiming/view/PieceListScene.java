@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PieceListScene implements Initializable {
-    static Controller mController = Controller.getInstance();
+    static final Controller mController = Controller.getInstance();
     @FXML
     ListView<Piece> mPieces;
     @FXML

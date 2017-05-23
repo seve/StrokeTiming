@@ -1,10 +1,6 @@
 package com.sevebadajoz.stroketiming.model;
 
-import java.sql.SQLException;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -18,10 +14,10 @@ import java.util.ArrayList;
  */
 public class DBModel
 {
-    private String mDBName;
-    private String mTableName;
-    private String[] mFieldNames;
-    private String[] mFieldTypes;
+    private final String mDBName;
+    private final String mTableName;
+    private final String[] mFieldNames;
+    private final String[] mFieldTypes;
 
     public DBModel(String dbName, String tableName, String[] fieldNames, String[] fieldTypes) throws SQLException
     {

@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class AddBoatScene {
-    static Controller mController = Controller.getInstance();
+    static final Controller mController = Controller.getInstance();
     // TODO: 5/22/2017 Add make and seat number functionality
     @FXML
     Button mBackButton;

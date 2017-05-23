@@ -3,11 +3,11 @@ package com.sevebadajoz.stroketiming.model;
 import java.util.ArrayList;
 
 public class Lineup {
-	int mID;
-	Rower[] mRowers;
-	Coxswain mCoxswain;
+	final int mID;
+	final Rower[] mRowers;
+	final Coxswain mCoxswain;
+	final Boat mBoat;
 	ArrayList<Practice> mPractices;
-	Boat mBoat;
 
 	public Lineup(int ID, Coxswain coxswain, Rower[] rowers, ArrayList<Practice> practices, Boat boat) {
 		mID = ID;
