@@ -40,4 +40,13 @@ public class Lineup {
 	public Boat getBoat() {
 		return mBoat;
 	}
+
+	public String toString() {
+		StringBuilder ret = new StringBuilder();
+		ret.append(mBoat).append(", Stroke: ").append(mRowers[0]);
+		for (int i = 1; i < mRowers.length; i++) {
+			ret.append(", ").append(mRowers[i]);
+		}
+		return ret.toString();
+	}
 }
