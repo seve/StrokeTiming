@@ -1,23 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.collections.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="498.0" prefWidth="606.0"
             xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.sevebadajoz.stroketiming.view.AddLineUpScene">
   <bottom>
-    <Button alignment="CENTER" mnemonicParsing="false" onAction="#addLineup" text="+" BorderPane.alignment="TOP_RIGHT">
-      <BorderPane.margin>
-        <Insets bottom="7.0" right="7.0" />
-      </BorderPane.margin>
-    </Button>
+      <HBox alignment="CENTER_RIGHT" fillHeight="false" BorderPane.alignment="CENTER_RIGHT">
+          <children>
+              <Button fx:id="mAddBoat" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                      onAction="#addNewBoat" text="Add New Boat">
+                  <HBox.margin>
+                      <Insets left="3.0" right="3.0"/>
+                  </HBox.margin>
+              </Button>
+              <Button fx:id="mAddRower" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                      onAction="#addLineup" text="Add New Rower">
+                  <HBox.margin>
+                      <Insets left="3.0" right="3.0"/>
+                  </HBox.margin>
+              </Button>
+              <Button fx:id="mAddCoxswain" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                      onAction="#addLineup" text="Add New Coxswain">
+                  <HBox.margin>
+                      <Insets left="3.0" right="3.0"/>
+                  </HBox.margin>
+              </Button>
+              <Region prefHeight="19.0" prefWidth="111.0">
+                  <HBox.margin>
+                      <Insets bottom="3.0" left="3.0" right="3.0"/>
+                  </HBox.margin>
+              </Region>
+              <Button fx:id="mAddLineup" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" disable="true"
+                      mnemonicParsing="false" onAction="#addLineup" text="+" textAlignment="CENTER">
+                  <HBox.margin>
+                      <Insets right="7.0"/>
+                  </HBox.margin>
+              </Button>
+          </children>
+          <BorderPane.margin>
+              <Insets bottom="7.0"/>
+          </BorderPane.margin>
+          <padding>
+              <Insets top="3.0"/>
+          </padding>
+      </HBox>
   </bottom>
   <center>
     <GridPane alignment="CENTER" prefHeight="206.0" prefWidth="317.0">
       <children>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+          <ComboBox fx:id="mStroke" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -26,9 +60,9 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <Label prefWidth="-1.0" text="Coxswain" GridPane.halignment="CENTER" GridPane.rowIndex="3"
-               GridPane.vgrow="SOMETIMES"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+          <Label prefWidth="-1.0" text="Coxswain" GridPane.halignment="CENTER" GridPane.rowIndex="3"
+                 GridPane.vgrow="SOMETIMES"/>
+          <ComboBox fx:id="mSevenSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -37,7 +71,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+          <ComboBox fx:id="mSixSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -46,7 +80,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+          <ComboBox fx:id="mFourSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -55,15 +89,15 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <Label text="7" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5"
-               GridPane.vgrow="SOMETIMES"/>
-        <Label text="5" GridPane.halignment="CENTER" GridPane.rowIndex="7"/>
-        <Label text="6" GridPane.halignment="CENTER" GridPane.rowIndex="6"/>
-        <Label text="4" GridPane.halignment="CENTER" GridPane.rowIndex="8"/>
-        <Label text="3" GridPane.halignment="CENTER" GridPane.rowIndex="9"/>
-        <Label text="2" GridPane.halignment="CENTER" GridPane.rowIndex="10"/>
-        <Label text="Bow" GridPane.halignment="CENTER" GridPane.rowIndex="11"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+          <Label text="7" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="5"
+                 GridPane.vgrow="SOMETIMES"/>
+          <Label text="5" GridPane.halignment="CENTER" GridPane.rowIndex="7"/>
+          <Label text="6" GridPane.halignment="CENTER" GridPane.rowIndex="6"/>
+          <Label text="4" GridPane.halignment="CENTER" GridPane.rowIndex="8"/>
+          <Label text="3" GridPane.halignment="CENTER" GridPane.rowIndex="9"/>
+          <Label text="2" GridPane.halignment="CENTER" GridPane.rowIndex="10"/>
+          <Label text="Bow" GridPane.halignment="CENTER" GridPane.rowIndex="11"/>
+          <ComboBox fx:id="mFiveSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -72,7 +106,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+          <ComboBox fx:id="mCoxswain" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -81,7 +115,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+          <ComboBox fx:id="mThreeSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -90,7 +124,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+          <ComboBox fx:id="mTwoSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -99,7 +133,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+          <ComboBox fx:id="mBowSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -108,9 +142,9 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <Label text="Stroke" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.vgrow="SOMETIMES"/>
-        <Label text="Boat" GridPane.halignment="CENTER" GridPane.rowIndex="2"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+          <Label text="Stroke" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.vgrow="SOMETIMES"/>
+          <Label text="Boat" GridPane.halignment="CENTER" GridPane.rowIndex="2"/>
+          <ComboBox fx:id="mBoat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -121,15 +155,15 @@
         </ComboBox>
       </children>
       <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="323.0" minWidth="10.0" prefWidth="323.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="277.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="323.0" minWidth="10.0" prefWidth="239.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="234.0"/>
       </columnConstraints>
       <padding>
         <Insets left="5.0" right="5.0" />
       </padding>
       <rowConstraints>
-        <RowConstraints/>
-        <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
         <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -138,15 +172,15 @@
         <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES"/>
       </rowConstraints>
     </GridPane>
   </center>
   <top>
-    <Button mnemonicParsing="false" onAction="#exit" text="&lt;-" BorderPane.alignment="TOP_LEFT">
+      <Button fx:id="mBack" mnemonicParsing="false" onAction="#exit" text="&lt;-" BorderPane.alignment="TOP_LEFT">
       <BorderPane.margin>
-        <Insets left="7.0" top="7.0"/>
+          <Insets left="7.0" top="7.0"/>
       </BorderPane.margin>
     </Button>
   </top>
