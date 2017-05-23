@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Controller {
 	private static final String DB_NAME = "stroke_timing.db";
@@ -14,15 +15,15 @@ public class Controller {
 	private static final String[] BOATS_FIELD_NAMES = {"id", "name", "seats", "weight", "make"};
 	private static final String[] BOATS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "INTEGER", "INTEGER", "TEXT"};
 
-	private static final String BOAT_LINEUPS_TABLE_NAME = "boat_lineups";
-	private static final String[] BOAT_LINEUPS_FIELD_NAMES = {"id", "coxswain_id", "stroke_seat_id", "seat_two_id", "seat_three_id",
-			"seat_four_id", "seat_five_id", "seat_six_id", "seat_seven_id", "bow_seat_id"};
-	private static final String[] BOAT_LINEUPS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "INTEGER", "INTEGER", "INTEGER", "INTEGER", "INTEGER",
-			"INTEGER", "INTEGER", "INTEGER", "INTEGER"};
+    private static final String LINEUPS_TABLE_NAME = "lineups";
+    private static final String[] LINEUPS_FIELD_NAMES = {"id", "coxswain_id", "stroke_seat_id", "seat_two_id", "seat_three_id",
+            "seat_four_id", "seat_five_id", "seat_six_id", "seat_seven_id", "bow_seat_id"};
+    private static final String[] LINEUPS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "INTEGER", "INTEGER", "INTEGER", "INTEGER", "INTEGER",
+            "INTEGER", "INTEGER", "INTEGER", "INTEGER"};
 
-	private static final String BOATS_TO_BOAT_LINEUPS_TABLE_NAME = "boats_to_boat_lineups";
-	private static final String[] BOATS_TO_BOAT_LINEUPS_FIELD_NAMES = {"boat_id", "boat_lineup_id"};
-	private static final String[] BOATS_TO_BOAT_LINEUPS_FIELD_TYPES = {"INTEGER", "INTEGER"};
+    private static final String BOATS_TO_LINEUPS_TABLE_NAME = "boats_to_lineups";
+    private static final String[] BOATS_TO_LINEUPS_FIELD_NAMES = {"boat_id", "boat_lineup_id"};
+    private static final String[] BOATS_TO_LINEUPS_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
 	private static final String ROWERS_TABLE_NAME = "rowers";
 	private static final String[] ROWERS_FIELD_NAMES = {"id", "name", "weight", "inches"};
@@ -61,7 +62,7 @@ public class Controller {
     private static Lineup mActiveLineup;
 
     private DBModel mBoatsTable;
-    private DBModel mBoatLineupsTable;
+    private DBModel mLineupsTable;
     private DBModel mBoatsToBoatLineupsTable;
     private DBModel mRowersTable;
     private DBModel mErgScoresTable;
@@ -137,8 +138,8 @@ public class Controller {
                 }
 
 
-                theOne.mBoatLineupsTable = new DBModel(DB_NAME, BOAT_LINEUPS_TABLE_NAME, BOAT_LINEUPS_FIELD_NAMES, BOAT_LINEUPS_FIELD_TYPES);
-                rs = theOne.mBoatLineupsTable.getAllRecords();
+                theOne.mLineupsTable = new DBModel(DB_NAME, LINEUPS_TABLE_NAME, LINEUPS_FIELD_NAMES, LINEUPS_FIELD_TYPES);
+                rs = theOne.mLineupsTable.getAllRecords();
 
                 for (ArrayList<String> values : rs)
                 {
@@ -158,7 +159,7 @@ public class Controller {
                     theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, null));
                 }
 
-                theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
+                theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_LINEUPS_TABLE_NAME, BOATS_TO_LINEUPS_FIELD_NAMES, BOATS_TO_LINEUPS_FIELD_TYPES);
                 theOne.mErgScoresTable = new DBModel(DB_NAME, ERG_SCORES_TABLE_NAME, ERG_SCORES_FIELD_NAMES, ERG_SCORES_FIELD_TYPES);
                 theOne.mRowerErgScoresTable = new DBModel(DB_NAME, ROWER_ERG_SCORES_TABLE_NAME, ROWER_ERG_SCORES_FIELD_NAMES, ROWER_ERG_SCORES_FIELD_TYPES);
                 theOne.mPracticesTable = new DBModel(DB_NAME, PRACTICES_TABLE_NAME, PRACTICES_FIELD_NAMES, PRACTICES_FIELD_TYPES);
@@ -218,6 +219,21 @@ public class Controller {
             }
         }
         return String.valueOf(chars);
+    }
+
+    public boolean addNewLineup(Rower[] rowers, Coxswain coxswain, Boat boat) {
+        String[] values = new String[LINEUPS_FIELD_NAMES.length - 1];
+        values[0] = Integer.toString(coxswain.getID());
+        for (int i = 1; i < values.length; i++) {
+            values[i] = Integer.toString(rowers[i].getID());
+        }
+        try {
+            mLineupsTable.createRecord(Arrays.copyOfRange(LINEUPS_FIELD_NAMES, 1, LINEUPS_FIELD_NAMES.length), values);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public Lineup getActiveLineup() {
