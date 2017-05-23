@@ -36,9 +36,79 @@ public class Lineup {
 		mID = ID;
 	}
 
+    public Coxswain getCoxswain() {
+        return mCoxswain;
+    }
 
+    public void setCoxswain(Coxswain coxswain) {
+        mCoxswain = coxswain;
+    }
 
-	public String toString() {
+    public Rower getStrokeSeat() {
+        return mStrokeSeat;
+    }
+
+    public void setStrokeSeat(Rower strokeSeat) {
+        mStrokeSeat = strokeSeat;
+    }
+
+    public Rower getSeatTwo() {
+        return mSeatTwo;
+    }
+
+    public void setSeatTwo(Rower seatTwo) {
+        mSeatTwo = seatTwo;
+    }
+
+    public Rower getSeatThree() {
+        return mSeatThree;
+    }
+
+    public void setSeatThree(Rower seatThree) {
+        mSeatThree = seatThree;
+    }
+
+    public Rower getSeatFour() {
+        return mSeatFour;
+    }
+
+    public void setSeatFour(Rower seatFour) {
+        mSeatFour = seatFour;
+    }
+
+    public Rower getSeatFive() {
+        return mSeatFive;
+    }
+
+    public void setSeatFive(Rower seatFive) {
+        mSeatFive = seatFive;
+    }
+
+    public Rower getSeatSix() {
+        return mSeatSix;
+    }
+
+    public void setSeatSix(Rower seatSix) {
+        mSeatSix = seatSix;
+    }
+
+    public Rower getSeatSeven() {
+        return mSeatSeven;
+    }
+
+    public void setSeatSeven(Rower seatSeven) {
+        mSeatSeven = seatSeven;
+    }
+
+    public Rower getBowSeat() {
+        return mBowSeat;
+    }
+
+    public void setBowSeat(Rower bowSeat) {
+        mBowSeat = bowSeat;
+    }
+
+    public String toString() {
 		return "";
 	}
 }
