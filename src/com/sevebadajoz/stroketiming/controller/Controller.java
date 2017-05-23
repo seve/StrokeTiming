@@ -1,11 +1,10 @@
 package com.sevebadajoz.stroketiming.controller;
 
-import com.sevebadajoz.stroketiming.model.Boat;
-import com.sevebadajoz.stroketiming.model.Coxswain;
-import com.sevebadajoz.stroketiming.model.Lineup;
-import com.sevebadajoz.stroketiming.model.Rower;
+import com.sevebadajoz.stroketiming.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.sql.SQLException;
 
 public class Controller {
 	private static final String DB_NAME = "stroke_timing.db";
@@ -58,6 +57,19 @@ public class Controller {
 
     private static Controller theOne;
 
+    private DBModel mBoatsTable;
+    private DBModel mBoatLineupsTable;
+    private DBModel mBoatsToBoatLineupsTable;
+    private DBModel mRowersTable;
+    private DBModel mErgScoresTable;
+    private DBModel mRowerErgScoresTable;
+    private DBModel mCoxswainsTable;
+    private DBModel mWorkoutsTable;
+    private DBModel mBoatWorkoutTable;
+    private DBModel mPiecesTable;
+    private DBModel mWorkoutToPiecesTable;
+
+
     private ObservableList<Lineup> mLineups;
     private ObservableList<Boat> mBoats;
     private ObservableList<Coxswain> mCoxswains;
@@ -67,28 +79,47 @@ public class Controller {
 
     public static Controller getInstance() {
         if (theOne == null) {
+
             theOne = new Controller();
+
             theOne.mLineups = FXCollections.observableArrayList();
             theOne.mBoats = FXCollections.observableArrayList();
             theOne.mCoxswains = FXCollections.observableArrayList();
             theOne.mRowers = FXCollections.observableArrayList();
+
+            try{
+                theOne.mBoatsTable = new DBModel(DB_NAME, BOATS_TABLE_NAME, BOATS_FIELD_NAMES, BOATS_FIELD_TYPES);
+                theOne.mBoatLineupsTable = new DBModel(DB_NAME, BOAT_LINEUPS_TABLE_NAME, BOAT_LINEUPS_FIELD_NAMES, BOAT_LINEUPS_FIELD_TYPES);
+                theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
+                theOne.mRowersTable = new DBModel(DB_NAME, ROWERS_TABLE_NAME, ROWERS_FIELD_NAMES, ROWERS_FIELD_TYPES);
+                theOne.mErgScoresTable = new DBModel(DB_NAME, ERG_SCORES_TABLE_NAME, ERG_SCORES_FIELD_NAMES, ERG_SCORES_FIELD_TYPES);
+                theOne.mRowerErgScoresTable = new DBModel(DB_NAME, ROWER_ERG_SCORES_TABLE_NAME, ROWER_ERG_SCORES_FIELD_NAMES, ROWER_ERG_SCORES_FIELD_TYPES);
+                theOne.mCoxswainsTable = new DBModel(DB_NAME, COXSWAINS_TABLE_NAME, COXSWAINS_FIELD_NAMES, COXSWAINS_FIELD_TYPES);
+                theOne.mWorkoutsTable = new DBModel(DB_NAME, WORKOUTS_TABLE_NAME, WORKOUTS_FIELD_NAMES, WORKOUTS_FIELD_TYPES);
+                theOne.mBoatWorkoutTable = new DBModel(DB_NAME, BOAT_WORKOUTS_TABLE_NAME, BOAT_WORKOUTS_FIELD_NAMES, BOAT_WORKOUTS_FIELD_TYPES);
+                theOne.mPiecesTable = new DBModel(DB_NAME, PIECES_TABLE_NAME, PIECES_FIELD_NAMES, PIECES_FIELD_TYPES);
+                theOne.mWorkoutToPiecesTable = new DBModel(DB_NAME, WORKOUT_TO_PIECES_TABLE_NAME, WORKOUT_TO_PIECES_FIELD_NAMES, WORKOUT_TO_PIECES_FIELD_TYPES);
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
         }
         return theOne;
 	}
 
     public ObservableList<Lineup> getLineups() {
-        return mLineups;
+        return theOne.mLineups;
     }
 
     public ObservableList<Boat> getBoats() {
-        return mBoats;
+        return theOne.mBoats;
     }
 
     public ObservableList<Coxswain> getCoxswains() {
-        return mCoxswains;
+        return theOne.mCoxswains;
     }
 
     public ObservableList<Rower> getRowers() {
-        return mRowers;
+        return theOne.mRowers;
     }
 }
