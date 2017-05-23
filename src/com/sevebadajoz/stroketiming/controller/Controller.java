@@ -88,6 +88,7 @@ public class Controller {
             theOne.mRowers = FXCollections.observableArrayList();
 
             try {
+
                 theOne.mBoatsTable = new DBModel(DB_NAME, BOATS_TABLE_NAME, BOATS_FIELD_NAMES, BOATS_FIELD_TYPES);
                 ArrayList<ArrayList<String>> rs = theOne.mBoatsTable.getAllRecords();
 
@@ -148,7 +149,7 @@ public class Controller {
 
                     Rower[] rowers = {getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)};
 
-                    theOne.mLineups.add(new Lineup(ID, getCoxwain(coxswainID), rowers));
+                    theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, null));
                 }
 
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
@@ -166,6 +167,17 @@ public class Controller {
         return theOne;
 	}
 
+	public static Boat getBoat(int ID)
+    {
+        for (Boat b : theOne.mBoats)
+        {
+            if (b.getID() == ID)
+                return b;
+        }
+
+        return null;
+    }
+
 	public static Rower getRower(int ID)
     {
         for (Rower r : theOne.mRowers)
@@ -177,7 +189,7 @@ public class Controller {
         return null;
     }
 
-    public static Coxswain getCoxwain(int ID)
+    public static Coxswain getCoxswain(int ID)
     {
         for (Coxswain c : theOne.mCoxswains)
         {
