@@ -146,7 +146,9 @@ public class Controller {
                     int seatSeven = Integer.parseInt(values.get(8));
                     int bowSeat = Integer.parseInt(values.get(9));
 
-                    theOne.mLineups.add(new Lineup(ID, getCoxwain(coxswainID), getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)));
+                    Rower[] rowers = {getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)};
+
+                    theOne.mLineups.add(new Lineup(ID, getCoxwain(coxswainID), rowers));
                 }
 
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
