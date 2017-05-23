@@ -77,6 +77,18 @@ public class AddLineUpScene implements Initializable {
         return this;
     }
 
+    @FXML
+    Object addNewRower() {
+        ViewSwitch.loadScene("Add New Rower", ViewSwitch.ADD_ROWER_SCENE);
+        return this;
+    }
+
+    @FXML
+    Object addNewCoxswain() {
+        ViewSwitch.loadScene("Add New Coxswain", ViewSwitch.ADD_COXSWAIN_SCENE);
+        return this;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //        if (!mController.getBoats().isEmpty())

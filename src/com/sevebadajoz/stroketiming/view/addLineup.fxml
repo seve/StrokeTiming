@@ -17,13 +17,13 @@
                   </HBox.margin>
               </Button>
               <Button fx:id="mAddRower" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                      onAction="#addLineup" text="Add New Rower">
+                      onAction="#addNewRower" text="Add New Rower">
                   <HBox.margin>
                       <Insets left="3.0" right="3.0"/>
                   </HBox.margin>
               </Button>
               <Button fx:id="mAddCoxswain" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                      onAction="#addLineup" text="Add New Coxswain">
+                      onAction="#addNewCoxswain" text="Add New Coxswain">
                   <HBox.margin>
                       <Insets left="3.0" right="3.0"/>
                   </HBox.margin>
