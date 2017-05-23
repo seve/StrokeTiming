@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="403.0" prefWidth="408.0"
             xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.sevebadajoz.stroketiming.view.AddBoatScene">
   <bottom>
-    <Button fx:id="mAddButton" mnemonicParsing="false" onAction="#addBoat" text="+"
-            BorderPane.alignment="CENTER_RIGHT"/>
+      <Button fx:id="mAddButton" mnemonicParsing="false" onAction="#addBoat" text="+"
+              BorderPane.alignment="CENTER_RIGHT">
+          <BorderPane.margin>
+              <Insets bottom="7.0" right="7.0"/>
+          </BorderPane.margin>
+      </Button>
   </bottom>
   <center>
     <GridPane>
@@ -14,9 +19,9 @@
         <Label alignment="CENTER" text="Boat Name" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES" />
         <Label alignment="CENTER" text="Boat Type" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES" />
         <Label alignment="CENTER" text="Boat Weight" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES" />
-        <TextField fx:id="mBoatName" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <TextField fx:id="mBoatType" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <TextField fx:id="mBoatWeight" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+          <TextField fx:id="mBoatName" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+          <TextField fx:id="mBoatType" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+          <TextField fx:id="mBoatWeight" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,6 +35,10 @@
     </GridPane>
   </center>
   <top>
-    <Button fx:id="mBackButton" mnemonicParsing="false" onAction="#back" text="&lt;-"/>
+      <Button fx:id="mBackButton" mnemonicParsing="false" onAction="#back" text="&lt;-">
+          <BorderPane.margin>
+              <Insets left="7.0" top="7.0"/>
+          </BorderPane.margin>
+      </Button>
   </top>
 </BorderPane>

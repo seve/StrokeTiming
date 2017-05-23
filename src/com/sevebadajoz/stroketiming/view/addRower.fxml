@@ -88,6 +88,10 @@
         </VBox>
     </center>
     <top>
-        <Button fx:id="mBack" mnemonicParsing="false" onAction="#back" text="&lt;-"/>
+        <Button fx:id="mBack" mnemonicParsing="false" onAction="#back" text="&lt;-">
+            <BorderPane.margin>
+                <Insets left="7.0" top="7.0"/>
+            </BorderPane.margin>
+        </Button>
     </top>
 </BorderPane>
