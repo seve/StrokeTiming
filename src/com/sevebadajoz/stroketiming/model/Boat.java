@@ -21,6 +21,14 @@ public class Boat {
         mMake = make;
     }
 
+    public int getID() {
+        return mID;
+    }
+
+    public void setID(int ID) {
+        mID = ID;
+    }
+
     public String getName() {
         return mName;
     }
