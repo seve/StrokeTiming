@@ -8,7 +8,8 @@
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="448.0" prefWidth="481.0"
             xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.sevebadajoz.stroketiming.view.AddRowerScene">
     <bottom>
-        <Button fx:id="mAdd" alignment="CENTER" mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT">
+        <Button fx:id="mAdd" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#add" text="+"
+                BorderPane.alignment="CENTER_RIGHT">
             <BorderPane.margin>
                 <Insets bottom="7.0" right="7.0"/>
             </BorderPane.margin>
@@ -20,13 +21,15 @@
                 <GridPane alignment="CENTER" prefHeight="400.0000999999975" prefWidth="600.0">
                     <children>
                         <Label text="Weight (pounds)" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                        <TextField fx:id="mWeight" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                        <TextField fx:id="mHeight" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <TextField fx:id="mWeight" onInputMethodTextChanged="#checkCompletion" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="2"/>
+                        <TextField fx:id="mHeight" onInputMethodTextChanged="#checkCompletion"
+                                   onKeyTyped="#checkCompletion" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
                         <Label alignment="CENTER" text="Name"/>
                         <Label prefWidth="-1.0" text="Side" GridPane.columnIndex="0" GridPane.hgrow="SOMETIMES"
                                GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES"/>
-                        <ComboBox fx:id="mSides" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES"
-                                  GridPane.rowIndex="1">
+                        <ComboBox fx:id="mSides" onAction="#checkCompletion" GridPane.columnIndex="1"
+                                  GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
                                     <String fx:value="Item 1"/>
@@ -36,7 +39,8 @@
                             </items>
                         </ComboBox>
                         <Label layoutX="108.0" layoutY="112.0" text="Height (inches)" GridPane.rowIndex="3"/>
-                        <TextField fx:id="mName" layoutX="244.0" layoutY="108.0" GridPane.columnIndex="1"/>
+                        <TextField fx:id="mName" layoutX="244.0" layoutY="108.0"
+                                   onInputMethodTextChanged="#checkCompletion" GridPane.columnIndex="1"/>
                     </children>
                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
@@ -84,6 +88,6 @@
         </VBox>
     </center>
     <top>
-        <Button fx:id="mBack" mnemonicParsing="false" text="&lt;-"/>
+        <Button fx:id="mBack" mnemonicParsing="false" onAction="#back" text="&lt;-"/>
     </top>
 </BorderPane>

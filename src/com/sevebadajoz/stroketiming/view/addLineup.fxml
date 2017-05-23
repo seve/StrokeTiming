@@ -51,7 +51,8 @@
   <center>
     <GridPane alignment="CENTER" prefHeight="206.0" prefWidth="317.0">
       <children>
-          <ComboBox fx:id="mStroke" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+          <ComboBox fx:id="mStroke" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="4">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -62,7 +63,8 @@
         </ComboBox>
           <Label prefWidth="-1.0" text="Coxswain" GridPane.halignment="CENTER" GridPane.rowIndex="3"
                  GridPane.vgrow="SOMETIMES"/>
-          <ComboBox fx:id="mSevenSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+          <ComboBox fx:id="mSevenSeat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="5">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -71,7 +73,8 @@
             </FXCollections>
           </items>
         </ComboBox>
-          <ComboBox fx:id="mSixSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+          <ComboBox fx:id="mSixSeat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="6">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -80,7 +83,8 @@
             </FXCollections>
           </items>
         </ComboBox>
-          <ComboBox fx:id="mFourSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+          <ComboBox fx:id="mFourSeat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="8">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -97,7 +101,8 @@
           <Label text="3" GridPane.halignment="CENTER" GridPane.rowIndex="9"/>
           <Label text="2" GridPane.halignment="CENTER" GridPane.rowIndex="10"/>
           <Label text="Bow" GridPane.halignment="CENTER" GridPane.rowIndex="11"/>
-          <ComboBox fx:id="mFiveSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+          <ComboBox fx:id="mFiveSeat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="7">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -106,7 +111,8 @@
             </FXCollections>
           </items>
         </ComboBox>
-          <ComboBox fx:id="mCoxswain" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+          <ComboBox fx:id="mCoxswain" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="3">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -115,7 +121,8 @@
             </FXCollections>
           </items>
         </ComboBox>
-          <ComboBox fx:id="mThreeSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+          <ComboBox fx:id="mThreeSeat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="9">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -124,7 +131,8 @@
             </FXCollections>
           </items>
         </ComboBox>
-          <ComboBox fx:id="mTwoSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+          <ComboBox fx:id="mTwoSeat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="10">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -133,7 +141,8 @@
             </FXCollections>
           </items>
         </ComboBox>
-          <ComboBox fx:id="mBowSeat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+          <ComboBox fx:id="mBowSeat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="11">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -144,7 +153,8 @@
         </ComboBox>
           <Label text="Stroke" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.vgrow="SOMETIMES"/>
           <Label text="Boat" GridPane.halignment="CENTER" GridPane.rowIndex="2"/>
-          <ComboBox fx:id="mBoat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+          <ComboBox fx:id="mBoat" onAction="#checkCompletion" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+                    GridPane.rowIndex="2">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
