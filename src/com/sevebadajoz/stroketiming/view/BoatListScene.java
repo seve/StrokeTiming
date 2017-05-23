@@ -47,7 +47,7 @@ public class BoatListScene implements Initializable {
     @FXML
     public Object loadInfo() {
         Lineup lineup = mBoatList.getSelectionModel().getSelectedItem();
-		mController.setmctiveLineup(lineup);
+		mController.setActiveLineup(lineup);
 		ViewSwitch.loadScene("Pieces for " + lineup, ViewSwitch.PRACTICE_LIST_SCENE);
 	}
 }
