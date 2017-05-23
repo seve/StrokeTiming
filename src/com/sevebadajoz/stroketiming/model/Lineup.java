@@ -3,112 +3,53 @@ package com.sevebadajoz.stroketiming.model;
 import java.util.ArrayList;
 
 public class Lineup {
-
 	int mID;
+	Rower[] mRowers;
 	Coxswain mCoxswain;
-	Rower mStrokeSeat;
-	Rower mSeatTwo;
-	Rower mSeatThree;
-	Rower mSeatFour;
-	Rower mSeatFive;
-	Rower mSeatSix;
-	Rower mSeatSeven;
-	Rower mBowSeat;
+	ArrayList<Practice> mPractices;
+	Boat mBoat;
 
-	public Lineup(int ID, Coxswain coxswain, Rower strokeSeat, Rower seatTwo, Rower seatThree, Rower seatFour, Rower seatFive, Rower seatSix, Rower seatSeven, Rower bowSeat) {
+	public Lineup(int ID, Rower[] rowers, Coxswain coxswain, Boat boat) {
 		mID = ID;
+		mRowers = rowers;
 		mCoxswain = coxswain;
-		mStrokeSeat = strokeSeat;
-		mSeatTwo = seatTwo;
-		mSeatThree = seatThree;
-		mSeatFour = seatFour;
-		mSeatFive = seatFive;
-		mSeatSix = seatSix;
-		mSeatSeven = seatSeven;
-		mBowSeat = bowSeat;
+		mBoat = boat;
 	}
 
-	public int getID() {
-		return mID;
-	}
-
-	public void setID(int ID) {
+	public Lineup(int ID, Rower[] rowers, Coxswain coxswain, ArrayList<Practice> practices, Boat boat) {
 		mID = ID;
+		mRowers = rowers;
+		mCoxswain = coxswain;
+		mPractices = practices;
+		mBoat = boat;
 	}
 
-    public Coxswain getCoxswain() {
-        return mCoxswain;
-    }
+	public Rower[] getRowers() {
+		return mRowers;
+	}
 
-    public void setCoxswain(Coxswain coxswain) {
-        mCoxswain = coxswain;
-    }
+	public Coxswain getCoxswain() {
+		return mCoxswain;
+	}
 
-    public Rower getStrokeSeat() {
-        return mStrokeSeat;
-    }
+	public ArrayList<Practice> getPractices() {
+		return mPractices;
+	}
 
-    public void setStrokeSeat(Rower strokeSeat) {
-        mStrokeSeat = strokeSeat;
-    }
+	public void setPractices(ArrayList<Practice> practices) {
+		mPractices = practices;
+	}
 
-    public Rower getSeatTwo() {
-        return mSeatTwo;
-    }
+	public Boat getBoat() {
+		return mBoat;
+	}
 
-    public void setSeatTwo(Rower seatTwo) {
-        mSeatTwo = seatTwo;
-    }
-
-    public Rower getSeatThree() {
-        return mSeatThree;
-    }
-
-    public void setSeatThree(Rower seatThree) {
-        mSeatThree = seatThree;
-    }
-
-    public Rower getSeatFour() {
-        return mSeatFour;
-    }
-
-    public void setSeatFour(Rower seatFour) {
-        mSeatFour = seatFour;
-    }
-
-    public Rower getSeatFive() {
-        return mSeatFive;
-    }
-
-    public void setSeatFive(Rower seatFive) {
-        mSeatFive = seatFive;
-    }
-
-    public Rower getSeatSix() {
-        return mSeatSix;
-    }
-
-    public void setSeatSix(Rower seatSix) {
-        mSeatSix = seatSix;
-    }
-
-    public Rower getSeatSeven() {
-        return mSeatSeven;
-    }
-
-    public void setSeatSeven(Rower seatSeven) {
-        mSeatSeven = seatSeven;
-    }
-
-    public Rower getBowSeat() {
-        return mBowSeat;
-    }
-
-    public void setBowSeat(Rower bowSeat) {
-        mBowSeat = bowSeat;
-    }
-
-    public String toString() {
-		return "";
+	public String toString() {
+		StringBuilder ret = new StringBuilder();
+		ret.append(mBoat).append(", Stroke: ").append(mRowers[0]);
+		for (int i = 1; i < mRowers.length; i++) {
+			ret.append(", ").append(mRowers[i]);
+		}
+		return ret.toString();
 	}
 }
