@@ -19,9 +19,9 @@
             <children>
                 <GridPane alignment="CENTER" prefHeight="400.0000999999975" prefWidth="600.0">
                     <children>
-                        <Label text="Weight" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label text="Weight (pounds)" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                         <TextField fx:id="mWeight" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                        <TextField fx:id="mName" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <TextField fx:id="mHeight" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
                         <Label alignment="CENTER" text="Name"/>
                         <Label prefWidth="-1.0" text="Side" GridPane.columnIndex="0" GridPane.hgrow="SOMETIMES"
                                GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES"/>
@@ -35,12 +35,16 @@
                                 </FXCollections>
                             </items>
                         </ComboBox>
+                        <Label layoutX="108.0" layoutY="112.0" text="Height (inches)" GridPane.rowIndex="3"/>
+                        <TextField fx:id="mName" layoutX="244.0" layoutY="108.0" GridPane.columnIndex="1"/>
                     </children>
                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="93.0" valignment="CENTER"
+                                        vgrow="SOMETIMES"/>
                         <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="93.0" valignment="CENTER"
                                         vgrow="SOMETIMES"/>
                         <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="93.0" valignment="CENTER"
