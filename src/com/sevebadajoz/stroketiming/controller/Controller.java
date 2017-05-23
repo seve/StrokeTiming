@@ -102,15 +102,6 @@ public class Controller {
                     theOne.mBoats.add(new Boat(ID, name, seats, weight, make));
                 }
 
-                theOne.mBoatLineupsTable = new DBModel(DB_NAME, BOAT_LINEUPS_TABLE_NAME, BOAT_LINEUPS_FIELD_NAMES, BOAT_LINEUPS_FIELD_TYPES);
-                rs = theOne.mBoatLineupsTable.getAllRecords();
-
-                for (ArrayList<String> values : rs)
-                {
-
-                }
-
-                theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
 
                 theOne.mRowersTable = new DBModel(DB_NAME, ROWERS_TABLE_NAME, ROWERS_FIELD_NAMES, ROWERS_FIELD_TYPES);
                 rs = theOne.mRowersTable.getAllRecords();
@@ -125,8 +116,7 @@ public class Controller {
                     theOne.mRowers.add(new Rower(ID, name, weight, inches));
                 }
 
-                theOne.mErgScoresTable = new DBModel(DB_NAME, ERG_SCORES_TABLE_NAME, ERG_SCORES_FIELD_NAMES, ERG_SCORES_FIELD_TYPES);
-                theOne.mRowerErgScoresTable = new DBModel(DB_NAME, ROWER_ERG_SCORES_TABLE_NAME, ROWER_ERG_SCORES_FIELD_NAMES, ROWER_ERG_SCORES_FIELD_TYPES);
+
                 theOne.mCoxswainsTable = new DBModel(DB_NAME, COXSWAINS_TABLE_NAME, COXSWAINS_FIELD_NAMES, COXSWAINS_FIELD_TYPES);
                 rs = theOne.mCoxswainsTable.getAllRecords();
 
@@ -139,6 +129,29 @@ public class Controller {
                     theOne.mCoxswains.add(new Coxswain(ID, name, weight));
                 }
 
+
+                theOne.mBoatLineupsTable = new DBModel(DB_NAME, BOAT_LINEUPS_TABLE_NAME, BOAT_LINEUPS_FIELD_NAMES, BOAT_LINEUPS_FIELD_TYPES);
+                rs = theOne.mBoatLineupsTable.getAllRecords();
+
+                for (ArrayList<String> values : rs)
+                {
+                    int ID = Integer.parseInt(values.get(0));
+                    int coxswainID = Integer.parseInt(values.get(1));
+                    int strokeSeat = Integer.parseInt(values.get(2));
+                    int seatTwo = Integer.parseInt(values.get(3));
+                    int seatThree = Integer.parseInt(values.get(4));
+                    int seatFour = Integer.parseInt(values.get(5));
+                    int seatFive = Integer.parseInt(values.get(6));
+                    int seatSix = Integer.parseInt(values.get(7));
+                    int seatSeven = Integer.parseInt(values.get(8));
+                    int bowSeat = Integer.parseInt(values.get(9));
+
+                    theOne.mLineups.add(new Lineup(ID, getCoxwain(coxswainID), getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)));
+                }
+
+                theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_BOAT_LINEUPS_TABLE_NAME, BOATS_TO_BOAT_LINEUPS_FIELD_NAMES, BOATS_TO_BOAT_LINEUPS_FIELD_TYPES);
+                theOne.mErgScoresTable = new DBModel(DB_NAME, ERG_SCORES_TABLE_NAME, ERG_SCORES_FIELD_NAMES, ERG_SCORES_FIELD_TYPES);
+                theOne.mRowerErgScoresTable = new DBModel(DB_NAME, ROWER_ERG_SCORES_TABLE_NAME, ROWER_ERG_SCORES_FIELD_NAMES, ROWER_ERG_SCORES_FIELD_TYPES);
                 theOne.mWorkoutsTable = new DBModel(DB_NAME, WORKOUTS_TABLE_NAME, WORKOUTS_FIELD_NAMES, WORKOUTS_FIELD_TYPES);
                 theOne.mBoatWorkoutTable = new DBModel(DB_NAME, BOAT_WORKOUTS_TABLE_NAME, BOAT_WORKOUTS_FIELD_NAMES, BOAT_WORKOUTS_FIELD_TYPES);
                 theOne.mPiecesTable = new DBModel(DB_NAME, PIECES_TABLE_NAME, PIECES_FIELD_NAMES, PIECES_FIELD_TYPES);
@@ -150,6 +163,28 @@ public class Controller {
         }
         return theOne;
 	}
+
+	public static Rower getRower(int ID)
+    {
+        for (Rower r : theOne.mRowers)
+        {
+            if (r.getID() == ID)
+                return r;
+        }
+
+        return null;
+    }
+
+    public static Coxswain getCoxwain(int ID)
+    {
+        for (Coxswain c : theOne.mCoxswains)
+        {
+            if (c.getID() == ID)
+                return c;
+        }
+
+        return null;
+    }
 
     public static String capitalizeString(String string) {
         char[] chars = string.toLowerCase().toCharArray();

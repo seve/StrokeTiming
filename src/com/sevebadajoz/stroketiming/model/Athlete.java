@@ -14,11 +14,11 @@ public class Athlete {
 		mName = name;
 		mWeight = weight;
 	}
-	int getID() {return mID;}
-	double getWeight() {
+	public int getID() {return mID;}
+	public double getWeight() {
 		return mWeight;
 	}
-	String getName() {
+	public String getName() {
 		return mName;
 	}
 

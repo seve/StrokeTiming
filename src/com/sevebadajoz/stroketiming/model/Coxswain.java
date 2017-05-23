@@ -6,5 +6,4 @@ public class Coxswain extends Athlete
     {
         super(ID, name, weight);
     }
-    
 }

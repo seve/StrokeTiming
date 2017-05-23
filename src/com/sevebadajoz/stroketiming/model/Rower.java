@@ -20,6 +20,14 @@ public class Rower extends Athlete {
     //   mErgPiece = ergPiece;
     //}
 
+    public int getID() {
+        return mID;
+    }
+
+    public void setID(int ID) {
+        mID = ID;
+    }
+
     public int getInches() {
         return mInches;
     }
