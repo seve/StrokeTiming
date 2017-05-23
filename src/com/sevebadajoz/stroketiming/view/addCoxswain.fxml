@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="448.0" prefWidth="481.0"
             xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.sevebadajoz.stroketiming.view.AddCoxswainScene">
     <bottom>
-        <Button fx:id="mAdd" alignment="CENTER" mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT">
+        <Button fx:id="mAdd" alignment="CENTER" mnemonicParsing="false" onAction="#add" text="+"
+                BorderPane.alignment="CENTER_RIGHT">
             <BorderPane.margin>
                 <Insets bottom="7.0" right="7.0"/>
             </BorderPane.margin>
@@ -19,8 +19,8 @@
                 <GridPane alignment="CENTER" prefHeight="400.0000999999975" prefWidth="600.0">
                     <children>
                         <Label text="Weight" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <TextField fx:id="mWeight" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="mName" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
                         <Label alignment="CENTER" text="Name"/>
                     </children>
                     <columnConstraints>
@@ -41,7 +41,7 @@
         </VBox>
     </center>
     <top>
-        <Button fx:id="mBack" mnemonicParsing="false" text="&lt;-">
+        <Button fx:id="mBack" mnemonicParsing="false" onAction="#back" text="&lt;-">
             <BorderPane.margin>
                 <Insets left="7.0" top="7.0"/>
             </BorderPane.margin>
