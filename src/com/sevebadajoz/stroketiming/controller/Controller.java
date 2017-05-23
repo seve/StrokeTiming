@@ -77,6 +77,7 @@ public class Controller {
     private ObservableList<Coxswain> mCoxswains;
     private ObservableList<Rower> mRowers;
     private ObservableList<Practice> mPractices;
+    private ObservableList<Piece> mPieces;
 
     private Controller() {
     }
@@ -246,5 +247,13 @@ public class Controller {
     public ObservableList<Practice> getPractices() {
         theOne.mPractices.setAll(theOne.getActiveLineup().getPractices());
         return theOne.mPractices;
+    }
+
+    public ObservableList<Piece> getPieces() {
+        return mPieces;
+    }
+
+    public void setPieces(ObservableList<Piece> pieces) {
+        mPieces = pieces;
     }
 }
