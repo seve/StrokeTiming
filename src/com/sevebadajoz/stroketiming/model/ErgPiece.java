@@ -1,28 +1,27 @@
 package com.sevebadajoz.stroketiming.model;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
-public class ErgScore {
+public class ErgPiece {
 	private double mSeconds;
 	private int mMeters;
 	private double mWeight;
 	private double mWeightFactor;
 
-	public ErgScore(double seconds, int meters) {
+	public ErgPiece(double seconds, int meters) {
 		mSeconds = seconds;
 		mMeters = meters;
 	}
-	public ErgScore(double seconds, int meters, double weight) {
+	public ErgPiece(double seconds, int meters, double weight) {
 		this(seconds, meters);
 		mWeight = weight;
 		mWeightFactor = Math.pow((mWeight / 270), .222);
 	}
-	public ErgScore(String time, int meters) {
+	public ErgPiece(String time, int meters) {
 		mSeconds = stringToSeconds(time);
 		mMeters = meters;
 	}
-	public ErgScore(String time, int meters, double weight) {
+	public ErgPiece(String time, int meters, double weight) {
 		mSeconds = stringToSeconds(time);
 		mMeters = meters;
 		mWeight = weight;

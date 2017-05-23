@@ -6,17 +6,16 @@ import org.junit.jupiter.api.Test;
 
 import java.text.DecimalFormat;
 
-import static com.sevebadajoz.stroketiming.model.ErgScore.secondsToString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class ErgScoreTest {
-	ErgScore myScore;
-	ErgScore weightScore;
+class ErgPieceTest {
+	ErgPiece myScore;
+	ErgPiece weightScore;
 	@BeforeEach
 	void setUp() {
-		myScore = new ErgScore("6:48.7", 2000);
-		weightScore = new ErgScore("6:48.7", 2000, 170.5);
+		myScore = new ErgPiece("6:48.7", 2000);
+		weightScore = new ErgPiece("6:48.7", 2000, 170.5);
 	}
 
 	@AfterEach
@@ -41,13 +40,13 @@ class ErgScoreTest {
 	@Test
 	void secondsToString() {
 		System.out.println("Seconds: " + myScore.getSeconds());
-		System.out.println("String: " + ErgScore.secondsToString(myScore.getSeconds()));
-		assertEquals("6:48.7", ErgScore.secondsToString(myScore.getSeconds()));
+		System.out.println("String: " + ErgPiece.secondsToString(myScore.getSeconds()));
+		assertEquals("6:48.7", ErgPiece.secondsToString(myScore.getSeconds()));
 	}
 
 	@Test
 	void stringToSeconds() {
-		assertEquals(408.7, ErgScore.stringToSeconds("6:48.7"));
+		assertEquals(408.7, ErgPiece.stringToSeconds("6:48.7"));
 	}
 
 }
