@@ -44,6 +44,12 @@ public class BoatListScene implements Initializable {
 		mBoatList.setItems(mController.getLineups());
 	}
 
+	@FXML
+	Object enableButton() {
+		mMoreInfo.setDisable(false);
+		return this;
+	}
+
     @FXML
     public Object loadInfo() {
         Lineup lineup = mBoatList.getSelectionModel().getSelectedItem();

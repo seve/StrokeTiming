@@ -345,6 +345,7 @@ public class Controller {
     }
 
     public ObservableList<Practice> getPractices() {
+        if(theOne.getActiveLineup().getPractices().size() > 0)
         theOne.mPractices.setAll(theOne.getActiveLineup().getPractices());
         return theOne.mPractices;
     }

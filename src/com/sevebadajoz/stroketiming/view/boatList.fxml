@@ -3,32 +3,33 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111"
-            fx:controller="com.sevebadajoz.stroketiming.view.BoatListScene">
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sevebadajoz.stroketiming.view.BoatListScene">
   <bottom>
     <HBox alignment="CENTER_RIGHT" fillHeight="false" prefHeight="28.0" prefWidth="600.0" visible="true" BorderPane.alignment="BOTTOM_RIGHT">
       <children>
-          <Button fx:id="mMoreInfo" disable="true" mnemonicParsing="false" onAction="#loadInfo" text="View Info"/>
+          <Button fx:id="mMoreInfo" disable="true" mnemonicParsing="false" onAction="#loadInfo" text="View Info" />
           <Region prefHeight="25.0" prefWidth="157.0">
               <HBox.margin>
-                  <Insets left="3.0" right="3.0" top="3.0"/>
+                  <Insets left="3.0" right="3.0" top="3.0" />
               </HBox.margin>
           </Region>
           <Button fx:id="mAddButton" mnemonicParsing="false" onAction="#loadAddBoat" text="Add New Lineup">
               <HBox.margin>
-                  <Insets right="7.0"/>
+                  <Insets right="7.0" />
               </HBox.margin>
           </Button>
       </children>
         <BorderPane.margin>
-            <Insets bottom="7.0" top="7.0"/>
+            <Insets bottom="7.0" top="7.0" />
         </BorderPane.margin>
     </HBox>
   </bottom>
   <center>
-    <ListView fx:id="mBoatList" prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+    <ListView fx:id="mBoatList" onMouseClicked="#enableButton" prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
   </center>
   <top>
     <Button fx:id="mExitButton" mnemonicParsing="false" onAction="#exitCheck" text="X" BorderPane.alignment="TOP_RIGHT" />

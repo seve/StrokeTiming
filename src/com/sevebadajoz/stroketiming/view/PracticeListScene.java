@@ -2,6 +2,7 @@ package com.sevebadajoz.stroketiming.view;
 
 import com.sevebadajoz.stroketiming.controller.Controller;
 import com.sevebadajoz.stroketiming.model.Practice;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,7 +25,8 @@ public class PracticeListScene implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        mPractices.setItems(mController.getPractices());
+    if(mController.getActiveLineup().getPractices() != null)
+        mPractices.setItems(FXCollections.observableList(mController.getActiveLineup().getPractices()));
     }
 
     @FXML
