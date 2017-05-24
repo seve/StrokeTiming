@@ -238,6 +238,7 @@ public class Controller {
     // TODO: 5/23/2017 FIX tables and fix getLineups
     public ObservableList<Lineup> getLineups() {
         ArrayList<ArrayList<String>> rs = null;
+        getBoats();
         try {
         	theOne.getInstance();
             rs = theOne.mLineupsTable.getAllRecords();
