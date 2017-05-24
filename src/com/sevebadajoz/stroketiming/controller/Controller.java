@@ -239,6 +239,7 @@ public class Controller {
     public ObservableList<Lineup> getLineups() {
         ArrayList<ArrayList<String>> rs = null;
         getBoats();
+        getRowers();
         try {
         	theOne.getInstance();
             rs = theOne.mLineupsTable.getAllRecords();
@@ -259,8 +260,13 @@ public class Controller {
 
 
                     ArrayList<ArrayList<String>> temp = mBoatsToBoatLineupsTable.getRecord(Integer.toString(ID));
-                if(temp.size() > 0) {
-                                        theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, getBoat(Integer.parseInt(temp.get(0).get(0)))));
+                    Lineup add = new Lineup(ID, getCoxswain(coxswainID), rowers, null, getBoat(Integer.parseInt(temp.get(0).get(0))));
+                    boolean notFound = true;
+                for (Lineup lineup : mLineups) {
+                    if(add.getID() == lineup.getID()) notFound = false;
+                }
+                if(temp.size() > 0 && notFound) {
+                                        theOne.mLineups.add(add);
                 }
             }
         }catch (SQLException e) {
