@@ -104,9 +104,10 @@ public class Controller {
                 theOne.mCoxswainsTable = new DBModel(DB_NAME, COXSWAINS_TABLE_NAME, COXSWAINS_FIELD_NAMES, COXSWAINS_FIELD_TYPES);
 
                 theOne.mLineupsTable = new DBModel(DB_NAME, LINEUPS_TABLE_NAME, LINEUPS_FIELD_NAMES, LINEUPS_FIELD_TYPES);
-                theOne.getLineups();
+
 
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_LINEUPS_TABLE_NAME, BOATS_TO_LINEUPS_FIELD_NAMES, BOATS_TO_LINEUPS_FIELD_TYPES);
+                theOne.getLineups();
                 theOne.mErgPiecesTable = new DBModel(DB_NAME, ERG_PIECES_TABLE_NAME, ERG_PIECES_FIELD_NAMES, ERG_PIECES_FIELD_TYPES);
                 theOne.mRowerErgPiecesTable = new DBModel(DB_NAME, ROWER_ERG_PIECES_TABLE_NAME, ROWER_ERG_PIECES_FIELD_NAMES, ROWER_ERG_PIECES_FIELD_TYPES);
                 theOne.mPracticesTable = new DBModel(DB_NAME, PRACTICES_TABLE_NAME, PRACTICES_FIELD_NAMES, PRACTICES_FIELD_TYPES);
@@ -254,8 +255,10 @@ public class Controller {
 
                 Rower[] rowers = {getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)};
 
-                mBoatsToBoatLineupsTable.getRecord()
-                theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, null));
+                if(mBoatsToBoatLineupsTable.getRecordCount() > 0) {
+                    ArrayList<ArrayList<String>> temp = mBoatsToBoatLineupsTable.getRecord(Integer.toString(ID));
+                    theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, getBoat(Integer.parseInt(temp.get(0).get(0)))));
+                }
             }
         }catch (SQLException e) {
                 e.printStackTrace();
