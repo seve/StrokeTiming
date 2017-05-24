@@ -172,7 +172,7 @@ public class Controller {
         String[] values = new String[LINEUPS_FIELD_NAMES.length - 1];
         values[0] = Integer.toString(coxswain.getID());
         for (int i = 1; i < values.length; i++) {
-            values[i] = Integer.toString(rowers[i].getID());
+            values[i] = Integer.toString(rowers[i - 1].getID());
         }
         try {
             int id = mLineupsTable.createRecord(Arrays.copyOfRange(LINEUPS_FIELD_NAMES, 1, LINEUPS_FIELD_NAMES.length), values);
