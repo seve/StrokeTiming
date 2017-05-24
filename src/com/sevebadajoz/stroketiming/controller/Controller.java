@@ -112,52 +112,12 @@ public class Controller {
 
 
                 theOne.mRowersTable = new DBModel(DB_NAME, ROWERS_TABLE_NAME, ROWERS_FIELD_NAMES, ROWERS_FIELD_TYPES);
-                rs = theOne.mRowersTable.getAllRecords();
-
-                for (ArrayList<String> values : rs)
-                {
-                    int ID = Integer.parseInt(values.get(0));
-                    String name = values.get(1);
-                    double weight = Double.parseDouble(values.get(2));
-                    int inches = Integer.parseInt(values.get(3));
-
-                    theOne.mRowers.add(new Rower(ID, name, weight, inches));
-                }
 
 
                 theOne.mCoxswainsTable = new DBModel(DB_NAME, COXSWAINS_TABLE_NAME, COXSWAINS_FIELD_NAMES, COXSWAINS_FIELD_TYPES);
-                rs = theOne.mCoxswainsTable.getAllRecords();
-
-                for (ArrayList<String> values : rs)
-                {
-                    int ID = Integer.parseInt(values.get(0));
-                    String name = values.get(1);
-                    double weight = Double.parseDouble(values.get(2));
-
-                    theOne.mCoxswains.add(new Coxswain(ID, name, weight));
-                }
-
 
                 theOne.mLineupsTable = new DBModel(DB_NAME, LINEUPS_TABLE_NAME, LINEUPS_FIELD_NAMES, LINEUPS_FIELD_TYPES);
-                rs = theOne.mLineupsTable.getAllRecords();
-
-                for (ArrayList<String> values : rs)
-                {
-                    int ID = Integer.parseInt(values.get(0));
-                    int coxswainID = Integer.parseInt(values.get(1));
-                    int strokeSeat = Integer.parseInt(values.get(2));
-                    int seatTwo = Integer.parseInt(values.get(3));
-                    int seatThree = Integer.parseInt(values.get(4));
-                    int seatFour = Integer.parseInt(values.get(5));
-                    int seatFive = Integer.parseInt(values.get(6));
-                    int seatSix = Integer.parseInt(values.get(7));
-                    int seatSeven = Integer.parseInt(values.get(8));
-                    int bowSeat = Integer.parseInt(values.get(9));
-
-                    Rower[] rowers = {getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)};
-
-                    theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, null));
-                }
+                theOne.getLineups();
 
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_LINEUPS_TABLE_NAME, BOATS_TO_LINEUPS_FIELD_NAMES, BOATS_TO_LINEUPS_FIELD_TYPES);
                 theOne.mErgPiecesTable = new DBModel(DB_NAME, ERG_PIECES_TABLE_NAME, ERG_PIECES_FIELD_NAMES, ERG_PIECES_FIELD_TYPES);
@@ -288,27 +248,29 @@ public class Controller {
 
     // TODO: 5/23/2017 FIX tables and fix getLineups
     public ObservableList<Lineup> getLineups() {
+        ArrayList<ArrayList<String>> rs = null;
         try {
-            for (ArrayList<String> strings : mLineupsTable.getAllRecords()) {
+            rs = theOne.mLineupsTable.getAllRecords();
 
-                int id = Integer.parseInt(strings.get(0));
-                boolean found = false;
-                for (Lineup lineup : mLineups) {
-                    if (lineup.getID() == id) found = true;
-                }
-                if (!found) {
-                    Coxswain coxswain = null;
-                    for (ArrayList<String> strings1 : mCoxswainsTable.getRecord(strings.get(1))) {
-                        int id1 = Integer.parseInt(strings1.get(0));
-                        coxswain = new Coxswain(id1, strings1.get(1), Double.parseDouble(strings1.get(2)));
-                    }
-//                    mLineups.add(new Lineup(id, coxswain, Integer.parseInt(strings.get(2)), Integer.parseInt(strings.get(3)), strings.get(4)));
+            for (ArrayList<String> values : rs) {
+                int ID = Integer.parseInt(values.get(0));
+                int coxswainID = Integer.parseInt(values.get(1));
+                int strokeSeat = Integer.parseInt(values.get(2));
+                int seatTwo = Integer.parseInt(values.get(3));
+                int seatThree = Integer.parseInt(values.get(4));
+                int seatFour = Integer.parseInt(values.get(5));
+                int seatFive = Integer.parseInt(values.get(6));
+                int seatSix = Integer.parseInt(values.get(7));
+                int seatSeven = Integer.parseInt(values.get(8));
+                int bowSeat = Integer.parseInt(values.get(9));
 
-                }
+                Rower[] rowers = {getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)};
+
+                theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, null));
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        }catch (SQLException e) {
+                e.printStackTrace();
+            }
         return theOne.mLineups;
     }
 
@@ -331,10 +293,39 @@ public class Controller {
     }
 
     public ObservableList<Coxswain> getCoxswains() {
-        return theOne.mCoxswains;
+    	try {
+		    ArrayList<ArrayList<String>> rs = theOne.mCoxswainsTable.getAllRecords();
+
+		    for (ArrayList<String> values : rs) {
+			    int ID = Integer.parseInt(values.get(0));
+			    String name = values.get(1);
+			    double weight = Double.parseDouble(values.get(2));
+
+			    theOne.mCoxswains.add(new Coxswain(ID, name, weight));
+		    }
+	    } catch (SQLException e) {
+		    e.printStackTrace();
+	    }
+
+	    return theOne.mCoxswains;
     }
 
     public ObservableList<Rower> getRowers() {
+        try{
+            ArrayList<ArrayList<String>> rs = theOne.mRowersTable.getAllRecords();
+
+            for (ArrayList<String> values : rs)
+            {
+                int ID = Integer.parseInt(values.get(0));
+                String name = values.get(1);
+                double weight = Double.parseDouble(values.get(2));
+                int inches = Integer.parseInt(values.get(3));
+
+                theOne.mRowers.add(new Rower(ID, name, weight, inches));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return theOne.mRowers;
     }
 
