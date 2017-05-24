@@ -97,19 +97,6 @@ public class Controller {
             try {
 
                 theOne.mBoatsTable = new DBModel(DB_NAME, BOATS_TABLE_NAME, BOATS_FIELD_NAMES, BOATS_FIELD_TYPES);
-                ArrayList<ArrayList<String>> rs = theOne.mBoatsTable.getAllRecords();
-
-                for (ArrayList<String> values : rs)
-                {
-                    int ID = Integer.parseInt(values.get(0));
-                    String name = values.get(1);
-                    int seats = Integer.parseInt(values.get(2));
-                    int weight = Integer.parseInt(values.get(3));
-                    String make = values.get(4);
-
-                    theOne.mBoats.add(new Boat(ID, name, seats, weight, make));
-                }
-
 
                 theOne.mRowersTable = new DBModel(DB_NAME, ROWERS_TABLE_NAME, ROWERS_FIELD_NAMES, ROWERS_FIELD_TYPES);
 
@@ -188,7 +175,8 @@ public class Controller {
             values[i] = Integer.toString(rowers[i].getID());
         }
         try {
-            mLineupsTable.createRecord(Arrays.copyOfRange(LINEUPS_FIELD_NAMES, 1, LINEUPS_FIELD_NAMES.length), values);
+            int id = mLineupsTable.createRecord(Arrays.copyOfRange(LINEUPS_FIELD_NAMES, 1, LINEUPS_FIELD_NAMES.length), values);
+            mBoatsToBoatLineupsTable.createRecord(Arrays.copyOfRange(BOATS_TO_LINEUPS_FIELD_NAMES, 1, BOATS_TO_LINEUPS_FIELD_NAMES.length), new String[]{Integer.toString(boat.getID()), Integer.toString(id)});
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -277,14 +265,20 @@ public class Controller {
 
     public ObservableList<Boat> getBoats() {
         try {
-            for (ArrayList<String> strings : mBoatsTable.getAllRecords()) {
-                int id = Integer.parseInt(strings.get(0));
-                boolean found = false;
+            ArrayList<ArrayList<String>> rs = theOne.mBoatsTable.getAllRecords();
+
+            for (ArrayList<String> values : rs) {
+                boolean notFound = true;
+                int ID = Integer.parseInt(values.get(0));
                 for (Boat boat : mBoats) {
-                    if (boat.getID() == id) found = true;
+                    if(boat.getID() == ID) notFound = false;
                 }
-                if (!found)
-                    mBoats.add(new Boat(id, strings.get(1), Integer.parseInt(strings.get(2)), Integer.parseInt(strings.get(3)), strings.get(4)));
+                String name = values.get(1);
+                int seats = Integer.parseInt(values.get(2));
+                int weight = Integer.parseInt(values.get(3));
+                String make = values.get(4);
+
+                if(notFound)theOne.mBoats.add(new Boat(ID, name, seats, weight, make));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -297,11 +291,15 @@ public class Controller {
 		    ArrayList<ArrayList<String>> rs = theOne.mCoxswainsTable.getAllRecords();
 
 		    for (ArrayList<String> values : rs) {
+		        boolean notFound = true;
 			    int ID = Integer.parseInt(values.get(0));
-			    String name = values.get(1);
+                for (Coxswain coxswain : mCoxswains) {
+                    if(coxswain.getID() == ID) notFound = false;
+                }
+                String name = values.get(1);
 			    double weight = Double.parseDouble(values.get(2));
 
-			    theOne.mCoxswains.add(new Coxswain(ID, name, weight));
+			    if(notFound)theOne.mCoxswains.add(new Coxswain(ID, name, weight));
 		    }
 	    } catch (SQLException e) {
 		    e.printStackTrace();
@@ -316,12 +314,16 @@ public class Controller {
 
             for (ArrayList<String> values : rs)
             {
+                boolean notFound = true;
                 int ID = Integer.parseInt(values.get(0));
+                for (Rower rower : mRowers) {
+                    if(rower.getID() == ID) notFound = false;
+                }
                 String name = values.get(1);
                 double weight = Double.parseDouble(values.get(2));
                 int inches = Integer.parseInt(values.get(3));
 
-                theOne.mRowers.add(new Rower(ID, name, weight, inches));
+                if(notFound)theOne.mRowers.add(new Rower(ID, name, weight, inches));
             }
         } catch (SQLException e) {
             e.printStackTrace();
