@@ -240,8 +240,8 @@ public class Controller {
         String[] values = new String[BOATS_FIELD_NAMES.length - 1];
         values[0] = name;
         values[1] = Integer.toString(seats);
-        values[2] = make;
-        values[3] = Integer.toString(weight);
+        values[2] = Integer.toString(weight);
+        values[3] = make;
         try {
             mBoatsTable.createRecord(Arrays.copyOfRange(BOATS_FIELD_NAMES, 1, BOATS_FIELD_NAMES.length), values);
             return true;
@@ -286,11 +286,46 @@ public class Controller {
         Controller.mActiveLineup = mActiveLineup;
     }
 
+    // TODO: 5/23/2017 FIX tables and fix getLineups
     public ObservableList<Lineup> getLineups() {
+        try {
+            for (ArrayList<String> strings : mLineupsTable.getAllRecords()) {
+
+                int id = Integer.parseInt(strings.get(0));
+                boolean found = false;
+                for (Lineup lineup : mLineups) {
+                    if (lineup.getID() == id) found = true;
+                }
+                if (!found) {
+                    Coxswain coxswain = null;
+                    for (ArrayList<String> strings1 : mCoxswainsTable.getRecord(strings.get(1))) {
+                        int id1 = Integer.parseInt(strings1.get(0));
+                        coxswain = new Coxswain(id1, strings1.get(1), Double.parseDouble(strings1.get(2)));
+                    }
+//                    mLineups.add(new Lineup(id, coxswain, Integer.parseInt(strings.get(2)), Integer.parseInt(strings.get(3)), strings.get(4)));
+
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return theOne.mLineups;
     }
 
     public ObservableList<Boat> getBoats() {
+        try {
+            for (ArrayList<String> strings : mBoatsTable.getAllRecords()) {
+                int id = Integer.parseInt(strings.get(0));
+                boolean found = false;
+                for (Boat boat : mBoats) {
+                    if (boat.getID() == id) found = true;
+                }
+                if (!found)
+                    mBoats.add(new Boat(id, strings.get(1), Integer.parseInt(strings.get(2)), Integer.parseInt(strings.get(3)), strings.get(4)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return theOne.mBoats;
     }
 
