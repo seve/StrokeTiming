@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
-
-<BorderPane prefHeight="337.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sevebadajoz.stroketiming.view.PracticeListScene">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="337.0" prefWidth="299.0"
+            xmlns="http://javafx.com/javafx/8.0.112"
+            fx:controller="com.sevebadajoz.stroketiming.view.PracticeListScene">
   <bottom>
-    <Button fx:id="addPractice" mnemonicParsing="false" onMouseClicked="#addPractice" text="+" BorderPane.alignment="CENTER_RIGHT">
+      <Button fx:id="addPractice" mnemonicParsing="false" onAction="#addPractice" text="+"
+              BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
             <Insets bottom="7.0" right="7.0" top="7.0" />
          </BorderPane.margin></Button>
@@ -16,7 +18,7 @@
     <ListView fx:id="mPractices" prefHeight="200.0" prefWidth="200.0" />
   </center>
   <top>
-    <Button fx:id="back" mnemonicParsing="false" onContextMenuRequested="#back" onMouseClicked="#back" text="&lt;-">
+      <Button fx:id="back" mnemonicParsing="false" onAction="#back" text="&lt;-">
          <BorderPane.margin>
             <Insets left="7.0" top="7.0" />
          </BorderPane.margin></Button>

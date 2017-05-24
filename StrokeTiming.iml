@@ -28,6 +28,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="sqlite-jdbc-3.16.1" level="project" />
+    <orderEntry type="library" name="sqlite-jdbc-3.16.1.jar" level="application" />
   </component>
 </module>

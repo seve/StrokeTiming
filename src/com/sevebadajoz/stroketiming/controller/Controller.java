@@ -235,13 +235,12 @@ public class Controller {
         Controller.mActiveLineup = mActiveLineup;
     }
 
-    // TODO: 5/23/2017 FIX tables and fix getLineups
     public ObservableList<Lineup> getLineups() {
         ArrayList<ArrayList<String>> rs = null;
         getBoats();
         getRowers();
         try {
-        	theOne.getInstance();
+            getInstance();
             rs = theOne.mLineupsTable.getAllRecords();
 
             for (ArrayList<String> values : rs) {
