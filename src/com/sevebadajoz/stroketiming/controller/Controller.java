@@ -25,6 +25,10 @@ public class Controller {
     private static final String[] BOATS_TO_LINEUPS_FIELD_NAMES = {"boat_id", "boat_lineup_id"};
     private static final String[] BOATS_TO_LINEUPS_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
+    private static final String ROWERS_TO_LINEUPS_TABLE_NAME = "rowers_to_lineups";
+    private static final String[] ROWERS_TO_LINEUPS_FIELD_NAMES = {"rower_id", "boat_lineup_id"};
+    private static final String[] ROWERS_TO_LINEUPS_FIELD_TYPES = {"INTEGER", "INTEGER"};
+
 	private static final String ROWERS_TABLE_NAME = "rowers";
 	private static final String[] ROWERS_FIELD_NAMES = {"id", "name", "weight", "inches"};
 	private static final String[] ROWERS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "REAL", "INTEGER"};
