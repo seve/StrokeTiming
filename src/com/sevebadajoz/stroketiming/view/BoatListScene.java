@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
+import javax.swing.text.View;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,6 +24,22 @@ public class BoatListScene implements Initializable {
 	private ListView<Lineup> mBoatList;
     @FXML
     private Button mMoreInfo;
+	@FXML
+	private Button mViewRowers;
+	@FXML
+	private Button mViewCoxswains;
+
+	@FXML
+	public Object viewCoxswains() {
+		ViewSwitch.loadScene("Coxswains", ViewSwitch.VIEW_COXSWAINS);
+		return this;
+	}
+
+	@FXML
+	public Object viewRowers() {
+		ViewSwitch.loadScene("Rowers", ViewSwitch.VIEW_ROWERS);
+		return this;
+	}
 
 	@FXML
 	public Object exitCheck() {

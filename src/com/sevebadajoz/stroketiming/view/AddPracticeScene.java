@@ -19,6 +19,14 @@ public class AddPracticeScene {
     ListView<WaterPiece> mWaterPieces;
     @FXML
     TextField mFileLocation;
+    @FXML
+    Button mBackButton;
+
+    @FXML
+    Object exit() {
+        ViewSwitch.loadScene("Stroke Timing", ViewSwitch.PRACTICE_LIST_SCENE);
+        return this;
+    }
 
     @FXML
     Object chooseFile() {

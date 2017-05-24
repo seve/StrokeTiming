@@ -14,6 +14,8 @@ public class ViewSwitch {
     public static final String ADD_COXSWAIN_SCENE = "com/sevebadajoz/stroketiming/view/addCoxswain.fxml";
     public static final String PRACTICE_LIST_SCENE = "com/sevebadajoz/stroketiming/view/practiceList.fxml";
     public static final String ADD_PRACTICE_SCENE = "com/sevebadajoz/stroketiming/view/addPractice.fxml";
+    public static final String VIEW_ROWERS = "com/sevebadajoz/stroketiming/view/viewRowers.fxml";
+    public static final String VIEW_COXSWAINS = "com/sevebadajoz/stroketiming/view/viewCoxswains.fxml";
 
     public static Stage activeStage;
     public static Stage window;
