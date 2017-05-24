@@ -4,6 +4,7 @@ import com.sevebadajoz.stroketiming.controller.Controller;
 import com.sevebadajoz.stroketiming.model.Boat;
 import com.sevebadajoz.stroketiming.model.Coxswain;
 import com.sevebadajoz.stroketiming.model.Rower;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -109,14 +110,15 @@ public class AddLineUpScene implements Initializable {
 //        else
 //            mCoxswain.setPlaceholder(new Label("Add a Coxswain"));
 //        if (!mController.getRowers().isEmpty()) {
-        mStroke.getItems().setAll(mController.getRowers());
-        mSevenSeat.getItems().setAll(mController.getRowers());
-        mSixSeat.getItems().setAll(mController.getRowers());
-        mFiveSeat.getItems().setAll(mController.getRowers());
-        mFourSeat.getItems().setAll(mController.getRowers());
-        mThreeSeat.getItems().setAll(mController.getRowers());
-        mTwoSeat.getItems().setAll(mController.getRowers());
-        mBowSeat.getItems().setAll(mController.getRowers());
+        ObservableList<Rower> allRowers = mController.getRowers();
+        mStroke.getItems().setAll(allRowers);
+        mSevenSeat.getItems().setAll(allRowers);
+        mSixSeat.getItems().setAll(allRowers);
+        mFiveSeat.getItems().setAll(allRowers);
+        mFourSeat.getItems().setAll(allRowers);
+        mThreeSeat.getItems().setAll(allRowers);
+        mTwoSeat.getItems().setAll(allRowers);
+        mBowSeat.getItems().setAll(allRowers);
 //        } else {
 //            mStroke.setPlaceholder(new Label("Add a Rower"));
 //            mSevenSeat.setPlaceholder(new Label("Add a Rower"));
