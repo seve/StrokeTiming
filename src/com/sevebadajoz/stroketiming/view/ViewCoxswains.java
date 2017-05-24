@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 public class ViewCoxswains implements Initializable {
 
     private static final Controller mController = Controller.getInstance();
-
     @FXML
     private Button mBackButton;
     @FXML
