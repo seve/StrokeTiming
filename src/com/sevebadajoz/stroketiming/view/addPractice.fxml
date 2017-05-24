@@ -2,20 +2,22 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/2.2">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="-1.0" prefWidth="-1.0"
+            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.sevebadajoz.stroketiming.view.AddPracticeScene">
   <bottom>
-    <Button mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT" />
+      <Button fx:id="mAdd" mnemonicParsing="false" text="+" BorderPane.alignment="CENTER_RIGHT"/>
   </bottom>
   <left>
     <GridPane prefWidth="347.0">
       <children>
         <HBox alignment="CENTER" prefHeight="55.0" prefWidth="371.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
           <children>
-            <TextField focusTraversable="true" prefWidth="200.0" />
-            <Button mnemonicParsing="false" text="Choose a File (.csv)" />
+              <TextField fx:id="mFileLocation" focusTraversable="true" prefWidth="200.0"/>
+              <Button fx:id="mChooseFile" mnemonicParsing="false" text="Choose a File (.csv)"/>
           </children>
         </HBox>
-        <ListView prefHeight="191.0" prefWidth="347.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+          <ListView fx:id="mWaterPieces" prefHeight="191.0" prefWidth="347.0" GridPane.columnIndex="0"
+                    GridPane.rowIndex="2"/>
         <Label text="Detected Pieces" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
       </children>
       <columnConstraints>
