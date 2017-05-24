@@ -43,9 +43,9 @@ public class Lineup {
 
 	public String toString() {
 		StringBuilder ret = new StringBuilder();
-		ret.append(mBoat).append(", Stroke: ").append(mRowers[0]);
+		ret.append(mBoat).append(", Stroke: ").append(mRowers[0].getName());
 		for (int i = 1; i < mRowers.length; i++) {
-			ret.append(", ").append(mRowers[i]);
+			ret.append(", ").append(mRowers[i].getName());
 		}
 		return ret.toString();
 	}
