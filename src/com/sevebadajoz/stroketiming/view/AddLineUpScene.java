@@ -102,15 +102,8 @@ public class AddLineUpScene implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        if (!mController.getBoats().isEmpty())
         mBoat.getItems().setAll(mController.getBoats());
-//        else
-//            mBoat.setPlaceholder(new Label("Add a Boat"));
-//        if (!mController.getCoxswains().isEmpty())
         mCoxswain.getItems().setAll(mController.getCoxswains());
-//        else
-//            mCoxswain.setPlaceholder(new Label("Add a Coxswain"));
-//        if (!mController.getRowers().isEmpty()) {
         ObservableList<Rower> allRowers = mController.getRowers();
         mStroke.getItems().setAll(allRowers);
         mSevenSeat.getItems().setAll(allRowers);
@@ -120,16 +113,6 @@ public class AddLineUpScene implements Initializable {
         mThreeSeat.getItems().setAll(allRowers);
         mTwoSeat.getItems().setAll(allRowers);
         mBowSeat.getItems().setAll(allRowers);
-//        } else {
-//            mStroke.setPlaceholder(new Label("Add a Rower"));
-//            mSevenSeat.setPlaceholder(new Label("Add a Rower"));
-//            mSixSeat.setPlaceholder(new Label("Add a Rower"));
-//            mFiveSeat.setPlaceholder(new Label("Add a Rower"));
-//            mFourSeat.setPlaceholder(new Label("Add a Rower"));
-//            mThreeSeat.setPlaceholder(new Label("Add a Rower"));
-//            mTwoSeat.setPlaceholder(new Label("Add a Rower"));
-//            mBowSeat.setPlaceholder(new Label("Add a Rower"));
-//        }
 
     }
 }
