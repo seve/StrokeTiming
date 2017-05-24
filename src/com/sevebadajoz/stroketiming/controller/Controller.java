@@ -107,12 +107,19 @@ public class Controller {
                 theOne.getLineups();
 
                 theOne.mBoatsToBoatLineupsTable = new DBModel(DB_NAME, BOATS_TO_LINEUPS_TABLE_NAME, BOATS_TO_LINEUPS_FIELD_NAMES, BOATS_TO_LINEUPS_FIELD_TYPES);
+
                 theOne.mErgPiecesTable = new DBModel(DB_NAME, ERG_PIECES_TABLE_NAME, ERG_PIECES_FIELD_NAMES, ERG_PIECES_FIELD_TYPES);
+
                 theOne.mRowerErgPiecesTable = new DBModel(DB_NAME, ROWER_ERG_PIECES_TABLE_NAME, ROWER_ERG_PIECES_FIELD_NAMES, ROWER_ERG_PIECES_FIELD_TYPES);
+
                 theOne.mPracticesTable = new DBModel(DB_NAME, PRACTICES_TABLE_NAME, PRACTICES_FIELD_NAMES, PRACTICES_FIELD_TYPES);
+
                 theOne.mBoatPracticeTable = new DBModel(DB_NAME, BOAT_PRACTICES_TABLE_NAME, BOAT_PRACTICES_FIELD_NAMES, BOAT_PRACTICES_FIELD_TYPES);
+
                 theOne.mPiecesTable = new DBModel(DB_NAME, PIECES_TABLE_NAME, PIECES_FIELD_NAMES, PIECES_FIELD_TYPES);
+
                 theOne.mPracticeToPiecesTable = new DBModel(DB_NAME, PRACTICE_TO_PIECES_TABLE_NAME, PRACTICE_TO_PIECES_FIELD_NAMES, PRACTICE_TO_PIECES_FIELD_TYPES);
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -176,7 +183,7 @@ public class Controller {
         }
         try {
             int id = mLineupsTable.createRecord(Arrays.copyOfRange(LINEUPS_FIELD_NAMES, 1, LINEUPS_FIELD_NAMES.length), values);
-            mBoatsToBoatLineupsTable.createRecord(Arrays.copyOfRange(BOATS_TO_LINEUPS_FIELD_NAMES, 1, BOATS_TO_LINEUPS_FIELD_NAMES.length), new String[]{Integer.toString(id), Integer.toString(boat.getID())});
+            mBoatsToBoatLineupsTable.createRecord(BOATS_TO_LINEUPS_FIELD_NAMES, new String[]{Integer.toString(id), Integer.toString(boat.getID())});
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -254,7 +261,7 @@ public class Controller {
 
                 Rower[] rowers = {getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)};
 
-                mBoatsToBoatLineupsTable.getRecord()
+                //mBoatsToBoatLineupsTable.getRecord();
                 theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, null));
             }
         }catch (SQLException e) {
@@ -265,6 +272,7 @@ public class Controller {
 
 
     public ObservableList<Boat> getBoats() {
+
         try {
             ArrayList<ArrayList<String>> rs = theOne.mBoatsTable.getAllRecords();
 

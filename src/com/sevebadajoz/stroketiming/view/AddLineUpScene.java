@@ -61,6 +61,7 @@ public class AddLineUpScene implements Initializable {
         Rower bow = mBowSeat.getSelectionModel().getSelectedItem();
         Rower[] rowers = {stroke, seven, six, five, four, three, two, bow};
         mController.addNewLineup(rowers, coxswain, boat);
+
         ViewSwitch.loadScene("Stroke Timing", ViewSwitch.BOAT_LIST_SCENE);
         return this;
     }
