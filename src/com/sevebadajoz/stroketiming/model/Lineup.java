@@ -37,6 +37,10 @@ public class Lineup {
 		return mBoat;
 	}
 
+    public int getID() {
+        return mID;
+    }
+
 	public String toString() {
 		StringBuilder ret = new StringBuilder();
 		ret.append(mBoat).append(", Stroke: ").append(mRowers[0]);
