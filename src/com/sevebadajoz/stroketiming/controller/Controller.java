@@ -22,7 +22,7 @@ public class Controller {
             "INTEGER", "INTEGER", "INTEGER", "INTEGER"};
 
     private static final String BOATS_TO_LINEUPS_TABLE_NAME = "boats_to_lineups";
-    private static final String[] BOATS_TO_LINEUPS_FIELD_NAMES = {"boat_id", "boat_lineup_id"};
+    private static final String[] BOATS_TO_LINEUPS_FIELD_NAMES = {"boat_lineup_id", "boat_id"};
     private static final String[] BOATS_TO_LINEUPS_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
 	private static final String ROWERS_TABLE_NAME = "rowers";
@@ -176,7 +176,7 @@ public class Controller {
         }
         try {
             int id = mLineupsTable.createRecord(Arrays.copyOfRange(LINEUPS_FIELD_NAMES, 1, LINEUPS_FIELD_NAMES.length), values);
-            mBoatsToBoatLineupsTable.createRecord(Arrays.copyOfRange(BOATS_TO_LINEUPS_FIELD_NAMES, 1, BOATS_TO_LINEUPS_FIELD_NAMES.length), new String[]{Integer.toString(boat.getID()), Integer.toString(id)});
+            mBoatsToBoatLineupsTable.createRecord(Arrays.copyOfRange(BOATS_TO_LINEUPS_FIELD_NAMES, 1, BOATS_TO_LINEUPS_FIELD_NAMES.length), new String[]{Integer.toString(id), Integer.toString(boat.getID())});
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -254,6 +254,7 @@ public class Controller {
 
                 Rower[] rowers = {getRower(strokeSeat), getRower(seatTwo), getRower(seatThree), getRower(seatFour), getRower(seatFive), getRower(seatSix), getRower(seatSeven), getRower(bowSeat)};
 
+                mBoatsToBoatLineupsTable.getRecord()
                 theOne.mLineups.add(new Lineup(ID, getCoxswain(coxswainID), rowers, null, null));
             }
         }catch (SQLException e) {
