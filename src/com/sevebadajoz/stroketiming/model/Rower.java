@@ -5,15 +5,17 @@ public class Rower extends Athlete {
     protected int mInches;
     protected String mSide;
 
-    public Rower(int ID, String name, double weight, ErgPiece ergPiece, int inches) {
+    public Rower(int ID, String name, double weight, ErgPiece ergPiece, int inches, String side) {
         super(ID, name, weight);
         mErgPiece = ergPiece;
         mInches = inches;
+        mSide = side;
     }
 
-    public Rower(int ID, String name, double weight, int inches) {
+    public Rower(int ID, String name, double weight, int inches, String side) {
         super(ID, name, weight);
         mInches = inches;
+        mSide = side;
     }
 
     public ErgPiece getErgPiece() {

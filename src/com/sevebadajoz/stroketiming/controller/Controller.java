@@ -26,8 +26,8 @@ public class Controller {
     private static final String[] BOATS_TO_LINEUPS_FIELD_TYPES = {"INTEGER", "INTEGER"};
 
 	private static final String ROWERS_TABLE_NAME = "rowers";
-	private static final String[] ROWERS_FIELD_NAMES = {"id", "name", "weight", "inches"};
-	private static final String[] ROWERS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "REAL", "INTEGER"};
+	private static final String[] ROWERS_FIELD_NAMES = {"id", "name", "weight", "inches", "side"};
+	private static final String[] ROWERS_FIELD_TYPES = {"INTEGER PRIMARY KEY", "TEXT", "REAL", "INTEGER", "TEXT"};
 
     private static final String ERG_PIECES_TABLE_NAME = "erg_pieces";
     private static final String[] ERG_PIECES_FIELD_NAMES = {"id", "seconds", "meters", "weight"};
@@ -214,11 +214,12 @@ public class Controller {
         }
     }
 
-    public boolean addNewRower(String name, double weight, int inches) {
+    public boolean addNewRower(String name, double weight, int inches, String side) {
         String[] values = new String[ROWERS_FIELD_NAMES.length - 1];
         values[0] = name;
         values[1] = Double.toString(weight);
         values[2] = Integer.toString(inches);
+        values[3] = side;
         try {
             mRowersTable.createRecord(Arrays.copyOfRange(ROWERS_FIELD_NAMES, 1, ROWERS_FIELD_NAMES.length), values);
             return true;
@@ -335,8 +336,9 @@ public class Controller {
                 String name = values.get(1);
                 double weight = Double.parseDouble(values.get(2));
                 int inches = Integer.parseInt(values.get(3));
+                String side = values.get(4);
 
-                if(notFound)theOne.mRowers.add(new Rower(ID, name, weight, inches));
+                if(notFound)theOne.mRowers.add(new Rower(ID, name, weight, inches, side));
             }
         } catch (SQLException e) {
             e.printStackTrace();
