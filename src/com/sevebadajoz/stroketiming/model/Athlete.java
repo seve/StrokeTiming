@@ -5,9 +5,9 @@ import com.sevebadajoz.stroketiming.controller.Controller;
 import java.text.DecimalFormat;
 
 public class Athlete {
-	protected final String mName;
-	protected final double mWeight;
-	protected int mID;
+	protected String mName;
+	protected double mWeight;
+	protected final int mID;
 
 	protected Athlete(int ID, String name, double weight) {
 		mID = ID;
@@ -18,8 +18,15 @@ public class Athlete {
 	public double getWeight() {
 		return mWeight;
 	}
+	public void setWeight(double weight) {
+		mWeight = weight;
+	}
 	public String getName() {
 		return Controller.getInstance().capitalizeString(mName);
+	}
+
+	public void setName(String name) {
+		mName = name;
 	}
 
     public String toString() {

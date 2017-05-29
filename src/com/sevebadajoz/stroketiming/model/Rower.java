@@ -30,10 +30,6 @@ public class Rower extends Athlete {
         return mID;
     }
 
-    public void setID(int ID) {
-        mID = ID;
-    }
-
     public int getInches() {
         return mInches;
     }

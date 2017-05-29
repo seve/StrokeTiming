@@ -43,7 +43,7 @@ public class AddRowerScene implements Initializable {
 //        if (!mDistance.getText().trim().equals("") && mTime.getText().trim().equals("")) {
 //            ErgPiece ergPiece = new ErgPiece(mTime.getText().trim(), Integer.parseInt(mDistance.getText()));
 //            mController.addNewRower(name, weight, inches);
-        mController.addNewRower(name, weight, inches);
+        mController.addNewRower(name, weight, inches, side);
         clear();
         ViewSwitch.loadScene("Add a Lineup", ViewSwitch.ADD_LINEUP_SCENE);
         return this;
