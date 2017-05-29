@@ -28,4 +28,11 @@ public class ViewRowers implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     mRowersList.setItems(mController.getRowers());
     }
+    @FXML
+    public Object edit() {
+        mController.setActiveRower(mRowersList.getSelectionModel().getSelectedItem());
+        ViewSwitch.loadScene("Edit Rower", ViewSwitch.EDIT_ROWER_SCENE);
+        return this;
+        // TODO: 5/24/17 Complete
+    }
 }

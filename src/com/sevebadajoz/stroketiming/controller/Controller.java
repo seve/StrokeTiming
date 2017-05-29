@@ -60,6 +60,7 @@ public class Controller {
     private static Controller theOne;
 
     private static Lineup mActiveLineup;
+    private static Rower mActiveRower;
 
     private DBModel mBoatsTable;
     private DBModel mLineupsTable;
@@ -345,6 +346,7 @@ public class Controller {
 
     public ObservableList<Practice> getPractices() {
         if(theOne.getActiveLineup().getPractices().size() > 0)
+
         theOne.mPractices.setAll(theOne.getActiveLineup().getPractices());
         return theOne.mPractices;
     }
@@ -355,5 +357,13 @@ public class Controller {
 
     public void setPieces(ObservableList<Piece> pieces) {
         mPieces = pieces;
+    }
+
+    public Rower getActiveRower() {
+        return mActiveRower;
+    }
+
+    public void setActiveRower(Rower mActiveRower) {
+        Controller.mActiveRower = mActiveRower;
     }
 }
