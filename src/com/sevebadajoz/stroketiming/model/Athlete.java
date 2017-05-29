@@ -19,7 +19,7 @@ public class Athlete {
 		return mWeight;
 	}
 	public String getName() {
-		return mName;
+		return Controller.getInstance().capitalizeString(mName);
 	}
 
     public String toString() {
