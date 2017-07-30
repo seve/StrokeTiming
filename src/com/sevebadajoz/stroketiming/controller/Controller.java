@@ -123,6 +123,14 @@ public class Controller {
         return theOne;
 	}
 
+    public static boolean isNewPieceSC(String firstCol, String secondCol) {
+
+    }
+
+    public static double findAccleration(double first, double second) {
+        return second - first;
+    }
+
 	public static Boat getBoat(int ID)
     {
         for (Boat b : theOne.mBoats)
@@ -275,7 +283,6 @@ public class Controller {
             }
         return theOne.mLineups;
     }
-
 
     public ObservableList<Boat> getBoats() {
         try {
